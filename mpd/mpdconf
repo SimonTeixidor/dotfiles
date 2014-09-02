@@ -1,1 +1,10 @@
-/home/simon/.mpdconf
+music_directory    "/mnt/warez/musik"          # Can keep commented if XDG music dir.
+playlist_directory "~/.mpd/playlists"
+db_file            "~/.mpd/database"
+log_file           "~/.mpd/log"
+pid_file           "~/.mpd/pid"
+state_file         "~/.mpd/state"
+sticker_file       "~/.mpd/sticker.sql"
+filesystem_charset "utf-8"
+replaygain "auto"
+bind_to_address  "127.0.0.1"
