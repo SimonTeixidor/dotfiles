@@ -27,3 +27,5 @@ cp urxvt/Xdefaults $DEST/.Xdefaults
 cp vim/vimrc $DEST/.vimrc
 
 cp screen/screenrc $DEST/.screenrc
+
+cp zsh/zshrc $DEST/zsh
