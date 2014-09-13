@@ -35,6 +35,13 @@ cp screen/screenrc $DEST/.screenrc
 
 cp zsh/zshrc $DEST/.zshrc
 
+cp dircolors/dircolors $DEST/.dircolors
+
+if [ ! -d "$DEST/.vim/colors" ]; then
+	mkdir -p "$DEST/.vim/colors"
+fi
+cp vim/molokai.vim $DEST/.vim/colors/
+
 if [ ! -d "$DEST/.fonts" ]; then
 	mkdir "$DEST/.fonts"
 fi
