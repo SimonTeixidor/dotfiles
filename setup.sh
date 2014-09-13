@@ -11,7 +11,7 @@ fi
 cd dwm-6.0
 make
 if [ ! -d "$DEST/bin" ]; then
-	mkdir "$DEST/bin
+	mkdir "$DEST/bin"
 fi
 cp dwm $DEST/bin
 cd ..
@@ -28,4 +28,4 @@ cp vim/vimrc $DEST/.vimrc
 
 cp screen/screenrc $DEST/.screenrc
 
-cp zsh/zshrc $DEST/zsh
+cp zsh/zshrc $DEST/.zshrc
