@@ -1,5 +1,5 @@
 setxkbmap se 
 setxkbmap -option terminate:ctrl_alt_bksp 
-hsetroot -center ~/.wall.jpg
+feh --bg-fill ~/.wall.jpg
 mpd
 ~/bin/stats  
