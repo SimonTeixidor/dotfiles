@@ -9,8 +9,8 @@ static const Bool showsystray = True;
 
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#212121", "#888888", "#1b1d1e" },  // 0 = normal
-   { "#777777", "#ffffff", "#1b1d1e" },  // 1 = selected
+   { "#5e7175", "#a3babf", "#262729" },  // 0 = normal
+   { "#1692d0", "#ffffff", "#262729" },  // 1 = selected
    { "#1b1d1e", "#1b1d1e", "#ffffff" },  // 2 = urgent/warning
    { "#1b1d1e", "#f92672", "#1b1d1e" },  // 3 = red
    { "#1b1d1e", "#66d9ef", "#1b1d1e" },  // 4 = blue
@@ -80,8 +80,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_Right,  setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Left,   setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,  setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_h,   setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_o,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_x,      killclient,     {0} },
