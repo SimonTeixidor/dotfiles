@@ -35,9 +35,9 @@
 #appmenu-toolbar-button,
 .tabbrowser-tab
 {
-	background-color: #1b1d1e !important;
+	background-color: #262729 !important;
 	text-shadow: none !important;
-	color: #AE81FF !important;
+	color: #a3babf !important;
 }
 
 #urlbar
@@ -57,8 +57,8 @@
 
 .appmenu-toolbar-button
 {
-	background: #1b1d1e !important;
-	color: #1b1d1e !important;
+	background: #262729 !important;
+	color: #262729 !important;
 	text-align: left !important;
 	margin: 0 3px 0 0px !important;
 	padding: 0 0 0 0 !important;
@@ -71,36 +71,36 @@
 
 #navigator-toolbox #TabsToolbar
 {
-	background: #1b1d1e !important;
+	background: #262729 !important;
 	padding: 0px 0px !important;
 	height: 20px !important;
 }
 
 .tabbrowser-tab {
 	text-align: center !important;
-	color: #888888 !important;
-	background: #1b1d1e !important;
+	color: #a3babf !important;
+	background: #262729 !important;
 	margin: -2px 0px 0px 0px !important;
 	padding: 0px 2px 0px 4px !important;
 	border: 0 !important;
-	border-left: 2px solid #1b1d1e !important;
-	border-right: 2px solid #1b1d1e !important;
+	border-left: 2px solid #262729 !important;
+	border-right: 2px solid #262729 !important;
 	font-family: monospace !important;
 	font-size: 10px !important;
 }
 .tabbrowser-tab[selected="true"] {
-	background: #1b1d1e !important;
+	background: #262729 !important;
 	border-left: 2px solid #777777 !important;
 	border-right: 2px solid #777777 !important;
 	padding: 0px 2px 0px 3px !important;
-	color: #f8f8f2 !important;
+	color: #ffffff !important;
 } 
 
 #new-tab-button, .tabs-newtab-button {display:none !important;}
 .tabs-newtab-button{visibility:hidden !important}
 
 .tabbrowser-tabs  {
-	background-color:    #1b1d1e
+	background-color:    #262729
 
 	!important;
 }
