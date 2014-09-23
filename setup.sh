@@ -43,7 +43,7 @@ fi
 cp vim/molokai.vim $DEST/.vim/colors/
 
 if [ ! -d "$DEST/.wall.jpg" ]; then
-	wget https://fanart.tv/fanart/music/561d854a-6a28-4aa7-8c99-323e6ce46c2a/artistbackground/miles-davis-4e7460a4386ac.jpg -O $DEST/.wall.jpg
+	wget https://presentingsweden.si.se/wp-content/uploads/sites/7/2013/07/palme_castro.jpg -O $DEST/.wall.jpg
 fi
 
 if [ ! -d "$DEST/.fonts" ]; then
