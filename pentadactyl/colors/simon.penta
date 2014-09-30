@@ -1,0 +1,47 @@
+" Pentadactyl color file
+"
+" Mantainer: Jairo Suarez <slayerjairo@gmail.com>
+" Last Modified: 2011-11-10 19:53:34
+" Note: Based on the molokai colorscheme for vim
+"       adapted from monokai theme for textmate
+" Version: 0.1
+" Name: Molokai
+
+hi -a FontCode  font-family: "montecarlo"; font-size:10px; font-weight: normal;
+
+hi StatusLine font-weight:normal; font-family: Terminus; font-size:10px;
+
+" Normal{{{2
+hi -a Normal background: #272822 !important;
+hi -a Normal color: #F8F8F2 !important;
+hi -a Normal font-size: 10px;
+" Completition{{{2
+hi -a CompTitle color: #eddcd3; background: #121212;
+hi -a CompItem[selected] color:#705D22;
+hi -a CompItem[selected] background:#121212;
+hi -a CompItem background:#272822;
+hi -a Comp border-top: 0px;
+" Section: Status Line{{{1
+" StatusModeMsg{{{2
+hi -a StatusModeMsg background: #121212 !important;
+hi -a StatusModeMsg color: #eddcd3;
+" ModeMsg{{{2
+hi -a ModeMsg background: #121212 !important;
+hi -a ModeMsg color: #eddcd3;
+" MoreMsg{{{2
+hi -a MoreMsg background: #121212 !important;
+hi -a MoreMsg color: #eddcd3;
+" Normal{{{2
+hi -a StatusLineNormal background: #121212 !important;
+hi -a StatusLineNormal color: #eddcd3 !important;
+" Secure{{{2
+hi -a StatusLineSecure background: #121212 !important;
+hi -a StatusLineSecure color: #eddcd3 !important;
+" Broken{{{2
+hi -a StatusLineBroken background: #121212 !important;
+hi -a StatusLineBroken color: #eddcd3 !important;
+" Extended{{{2
+hi -a StatusLineExtended background: #121212 !important;
+hi -a StatusLineExtended color: #eddcd3 !important;
+" Section: Hint{{{1
+hi -a Hint font-family: montecarlo; font-size: 10px;
