@@ -119,3 +119,7 @@ alias ls='ls --color=auto'
 alias makelossy="brutha -x -d -q6 -j16 /mnt/warez/musik /mnt/warez/lossy"
 alias syncmusic="rsync -rtv --modify-window=3601 /mnt/warez/lossy /mnt/tmp"
 alias sudo="sudo "
+
+dl() {
+	scp $* 192.168.0.10:/mnt/disk/torrents/
+}
