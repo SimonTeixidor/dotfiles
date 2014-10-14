@@ -61,3 +61,5 @@ tar zxfv $DEST/.fonts/MonteCarlo-PCF.tgz -C $DEST/.fonts/
 mv $DEST/.fonts/MonteCarlo-PCF/* $DEST/.fonts/
 rm -rf $DEST/.fonts/MonteCarlo-PCF $DEST/.fonts/MonteCarlo-PCF.tgz
 mkfontdir $DEST/.fonts
+
+cp xmodmap/Xmodmap $DEST/.Xmodmap

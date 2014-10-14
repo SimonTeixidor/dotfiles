@@ -1,5 +1,6 @@
 setxkbmap se 
 setxkbmap -option terminate:ctrl_alt_bksp 
+xmodmap ~/.Xmodmap
 feh --bg-fill ~/.wall.jpg
 mpd
 ~/bin/stats  
