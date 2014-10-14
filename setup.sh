@@ -63,3 +63,4 @@ rm -rf $DEST/.fonts/MonteCarlo-PCF $DEST/.fonts/MonteCarlo-PCF.tgz
 mkfontdir $DEST/.fonts
 
 cp xmodmap/Xmodmap $DEST/.Xmodmap
+cp xbindkeys/xbindkeysrc $DEST/.xbindkeysrc
