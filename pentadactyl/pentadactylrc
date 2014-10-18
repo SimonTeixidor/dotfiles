@@ -1,8 +1,0 @@
-:nmap -builtin d <C-o>
-:nmap -builtin e f
-:nmap -builtin i gi
-:nmap -builtin E F
-:nmap -builtin f <C-i>
-map -builtin q d
-colorscheme simon
-set hintkeys=asdfjklö
