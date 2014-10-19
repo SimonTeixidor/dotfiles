@@ -1,0 +1,170 @@
+" Solarized dark color scheme for Pentadactyl                      {{{1
+" ----------------------------------------------------------------------
+"
+" Mantainer: claytron <robots@claytron.com>
+" Name: solarized-dark
+"
+" Reset the styles                                                  {{{1
+" ----------------------------------------------------------------------
+" This ensures they don't bleed over from other themes
+hi clear
+
+" Solarized color mappings                                          {{{1
+" ----------------------------------------------------------------------
+" This allows us to easily map the colors by name
+
+" Foreground colors                                                 {{{2
+" ----------------------------------------------------------------------
+hi s_base03 color: #CD7860 !important;
+hi s_base02 color: #705D22 !important;
+hi s_base01 color: #EF545F !important;
+hi s_base00 color: #252525 !important;
+hi s_base0 color: #252525 !important;
+hi s_base1 color: #EF545F !important;
+hi s_base2 color: #705D22 !important;
+hi s_base3 color: #CD7860 !important;
+hi s_yellow color: #CD7860 !important;
+hi s_orange color: #EF545F !important;
+hi s_red color: #EF545F !important;
+hi s_magenta color: #917154 !important;
+hi s_violet color: #989584 !important;
+hi s_blue color: #627A92 !important;
+hi s_cyan color: #767D75 !important;
+hi s_green color: #705D22 !important;
+
+
+" Gradient backgrounds                                              {{{2
+" ----------------------------------------------------------------------
+" base0 to base03
+hi s_comp_title background: -moz-linear-gradient(60deg, #839496, #002b36) !important;
+" cyan to base03
+hi s_comp_sep background: -moz-linear-gradient(60deg, #2aa198, #002b36) !important;
+
+" Status Line                                                       {{{1
+" ----------------------------------------------------------------------
+hi -l=s_base0,s_base02 StatusLineNormal
+hi -l=s_base03,s_orange StatusLineBroken
+hi -l=s_base03,s_blue StatusLineSecure
+hi -l=s_base03,s_violet StatusLineExtended
+hi -l=s_base03,s_magenta StatusWarningMsg
+" Make sure the question output looks nice between each status color
+hi StatusQuestion -a color: inherit !important; background-color: inherit !important;
+
+" Command Line                                                      {{{1
+" ----------------------------------------------------------------------
+hi -l=s_base0,s_base03 Normal
+hi -l=s_base03,s_magenta CompItem[selected]
+" background is s_base03
+hi CompItem:nth-child(2n+1) -a background: rgba(0, 43, 54, .04);
+hi -l=s_base03,s_comp_title CompTitle
+hi -l=s_base1 CompDesc -a
+hi -l=s_base1 Preview -a
+hi -l=s_comp_sep CompTitleSep height: 2px;
+hi -l=s_base0,s_base03 Message
+hi -l=s_base03,s_yellow WarningMsg
+hi -l=s_base03,s_magenta ErrorMsg
+hi -l=s_base1 URL
+hi -l=s_base1 URLExtra
+hi MoreMsg -a color: inherit !important; background-color: inherit !important;
+hi -l=s_green Filter -a
+hi -l=s_base0 InfoMsg
+hi -l=s_base01 ModeMsg
+hi -l=s_base00 CmdInput
+hi -l=s_base0,s_base03 CmdCmdLine
+hi -l=s_base03,s_magenta CmdErrorMsg
+
+" Hints                                                             {{{1
+" ----------------------------------------------------------------------
+" The hint background is s_base3, the outline is s_base03
+hi -l=s_base03 Hint -a outline: 1px solid rgba(0, 43, 54, .5); background: rgba(253, 246, 227, .8);
+hi -l=s_base03,s_blue HintElem
+hi -l=s_base03,s_magenta HintActive
+
+" Other                                                             {{{1
+" ----------------------------------------------------------------------
+hi -l=s_red Bell
+hi -l=s_blue,s_base03 NonText -a min-height: 16px; padding-left: 2px;
+hi -l=s_magenta Search -a
+hi -l=s_red Title -a
+hi -l=s_blue Indicator -a
+hi -l=s_cyan Question
+hi -l=s_blue Enabled -a
+hi -l=s_blue FrameIndicator -a
+hi -l=s_base0,s_base3 LinkInfo -a
+hi -l=s_base03,s_base2 LineNr
+hi -l=s_blue Tag -a
+hi -l=s_base03,s_orange EditorBlink1
+hi -l=s_base01 EditorBlink2
+hi -l=s_base2,s_base03 EditorEditing>*
+hi -l=s_base2,s_base03 EditorEditing
+hi -l=s_base03,s_red EditorError
+hi -l=s_base01 Disabled -a
+hi -l=s_base01 Addon:not([active]) -a
+" background is s_base03
+hi Addon:nth-child(2n+1) -a background: rgba(0, 43, 54, .04);
+" background is s_base03
+hi UsageItem:nth-of-type(2n) -a background: rgba(0, 43, 54, .04);
+hi -l=s_base01 Download:not([active]) -a
+" background is s_base03
+hi Download:nth-child(2n+1) -a background: rgba(0, 43, 54, .04);
+" Text shadow is s_base03
+hi -l=s_base3 TabIconNumber -a text-shadow: #002b36 -1px 0 1px, #002b36 0 1px 1px, #002b36 1px 0 1px, #002b36 0 -1px 1px;
+" buttons
+hi -l=s_blue Button -a
+hi -l=s_blue Button::after -a
+hi -l=s_blue Button::before -a
+
+
+" Help                                                              {{{1
+" ----------------------------------------------------------------------
+hi -l=s_base0,s_base03 HelpBody -a
+" Border is s_base3, and there to fake padding on the background image,
+" since the logo is black and I'm putting it on a white bg
+hi -l=s_base3 Logo -a border: 5px solid #fdf6e3 !important;
+" This can't be !important, or else it overrides all links (e.g. ex,
+" key, opt). The color used here is s_blue
+hi HelpLink[href] -a color: #268bd2;
+hi -l=s_blue HelpTopic -a
+hi -l=s_blue HelpType margin-right: 2ex;
+hi -l=s_magenta HelpInfoLabel -a
+hi -l=s_magenta HelpWarning -a
+hi -l=s_magenta HelpNote -a
+hi -l=s_orange HelpEx -a
+hi -l=s_green HelpKey -a
+hi -l=s_red HelpKeyword -a
+hi -l=s_red HelpTag -a
+hi -l=s_green HelpNewsTag -a
+hi -l=s_yellow HelpHead -a
+" Using s_base1 here for the border
+hi HelpBorder -a border-color: #93a1a1 !important;
+hi -l=s_cyan HelpSpec -a
+hi -l=s_cyan HelpArg -a
+hi -l=s_cyan HelpOptionalArg -a
+hi -l=s_violet HelpString -a
+hi -l=s_cyan HelpOpt -a
+" Help code blocks
+hi -l=s_base0 HelpXMLText -a
+hi -l=s_base00,s_base3 HelpXMLBase -a padding: 7px;
+hi -l=s_blue HelpXMLTagStart -a
+hi -l=s_blue HelpXMLTagEnd -a
+hi -l=s_orange HelpXMLAttribute -a
+hi -l=s_cyan HelpXMLString -a
+hi -l=s_base01 HelpXMLComment -a
+hi -l=s_base00 HelpXMLAttribute::after -a
+hi -l=s_orange HelpXMLNamespace -a
+hi -l=s_cyan HelpXMLNamespace::after -a
+hi -l=s_cyan HelpXMLProcessing -a
+hi -l=s_base00 HelpXMLProcessing::before -a
+hi -l=s_base00 HelpXMLProcessing::after -a
+hi HelpXML -a border: none;
+hi HelpXMLBlock -a border: none;
+hi -l=s_cyan Boolean -a
+hi -l=s_yellow Keyword -a
+hi -l=s_blue Function -a
+hi -l=s_blue Null -a
+hi -l=s_blue Number -a
+hi -l=s_green Object -a
+hi -l=s_base1 Comment -a
+hi -l=s_base0 Comment -a
+
+" vim: fdm=marker

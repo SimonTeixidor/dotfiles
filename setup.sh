@@ -35,11 +35,11 @@ cp screen/screenrc $DEST/.screenrc
 
 cp zsh/zshrc $DEST/.zshrc
 
-if [ ! -d "$DEST/.config" ]; then
-	mkdir -p "$DEST/.config/"
+if [ ! -d "$DEST/.pentadactyl" ]; then
+	mkdir -p "$DEST/.pentadactyl/"
 fi
-
-cp -r dwb $DEST/.config/
+cp -r pentadactyl/colors $DEST/.pentadactyl/
+cp pentadactyl/pentadactylrc $DEST/.pentadactylrc
 
 cp dircolors/dircolors $DEST/.dircolors
 
