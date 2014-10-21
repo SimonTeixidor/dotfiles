@@ -7,3 +7,8 @@ set number
 set nobackup
 set nowritebackup
 set noundofile
+
+augroup WrapLineInTeXFile
+    autocmd!
+    autocmd FileType tex setlocal tw=80
+augroup END
