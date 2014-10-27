@@ -1,9 +1,13 @@
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+HISTCONTROL=ignoredups:ignorespace
+export PS1="\[$black\]\w \[$none\]\$ "
+export EDITOR='vim'export PATH=$PATH:~/bin:/sbin
 alias ls='ls --color=auto'
 alias makelossy="brutha -x -d -q6 -j16 /mnt/warez/musik /mnt/warez/lossy"
 alias syncmusic="rsync -rtv --modify-window=3601 /mnt/warez/lossy /mnt/tmp"
 alias sudo="sudo "
+alias grep='grep --color=auto'
 dl() {
 	scp $* 192.168.0.10:/mnt/disk/torrents/
 }
