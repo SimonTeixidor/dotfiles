@@ -17,33 +17,36 @@
  * #scrollbutton-down,
  * */
 
-{
-	-moz-appearance: none !important;
-}
-
 /*#content browser{margin-right:-16px!important;overflow-y:scroll;overflow-x:hidden;}
  */
+.tabbrowser-tabs *|tab {
+	height:    12px !important;
+}
 
 .appmenu-button-container
 {
-	background: #2s2s2s !important;
+	background: #1b1d1e !important;
 }
 #navigator-toolbox #TabsToolbar,
 {
-	background: #2s2s2s !important;
+	background: #1b1d1e !important;
 }
 #appmenu-toolbar-button,
 .tabbrowser-tab
 {
-	background-color: #262729 !important;
+	background-color: #1b1d1e !important;
 	text-shadow: none !important;
 	color: #a3babf !important;
+	border: none !important;
+	border-radius: 0 !important;
 }
 
-#urlbar
-{
-	height: 22px;
+.tab-background-middle {
+	border-left: none !important;
+	border-right: none !important;
+	margin: 0 -0.5px !important;
 }
+ 
 
 #go-button,
 #star-button,
@@ -57,7 +60,7 @@
 
 .appmenu-toolbar-button
 {
-	background: #262729 !important;
+	background-color: #1b1d1e !important;
 	color: #262729 !important;
 	text-align: left !important;
 	margin: 0 3px 0 0px !important;
@@ -71,28 +74,26 @@
 
 #navigator-toolbox #TabsToolbar
 {
-	background: #262729 !important;
+	background-color: #1b1d1e !important;
 	padding: 0px 0px !important;
-	height: 20px !important;
 }
 
 .tabbrowser-tab {
 	text-align: center !important;
-	color: #a3babf !important;
+	color: #1b1d1e !important;
 	background: #262729 !important;
 	margin: -2px 0px 0px 0px !important;
-	padding: 0px 2px 0px 4px !important;
-	border: 0 !important;
-	border-left: 2px solid #262729 !important;
-	border-right: 2px solid #262729 !important;
-	font-family: monospace !important;
-	font-size: 10px !important;
+	padding: 0px 0px 0px 0px !important;
+	border: none !important;
+	border-radius: 0 !important;
+	font-family: Terminus !important;
+	font-size: 8pt !important;
 }
 .tabbrowser-tab[selected="true"] {
-	background: #262729 !important;
-	border-left: 2px solid #777777 !important;
-	border-right: 2px solid #777777 !important;
-	padding: 0px 2px 0px 3px !important;
+	background: #1b1d1e !important;
+	border: none !important;
+	border-radius: 0 !important;
+	padding: 0px 0px 0px 0px !important;
 	color: #ffffff !important;
 } 
 
@@ -100,10 +101,12 @@
 .tabs-newtab-button{visibility:hidden !important}
 
 .tabbrowser-tabs  {
-	background-color:    #262729
-
-	!important;
+	background-color:    #1b1d1e !important;
+	border: none !important;
+	border-radius: 0 !important;
 }
+
+#tabbrowser-tabs toolbar button > .toolbarbutton-icon { padding-bottom:2px !important; }
 
 tab-background-end[selected=true]:-moz-locale-dir(ltr):not(:-moz-lwtheme)::before,
 .tab-background-start[selected=true]:-moz-locale-dir(rtl):not(:-moz-lwtheme)::before, .tab-background-start[selected=true]:-moz-locale-dir(ltr):not(:-moz-lwtheme)::before,
@@ -116,6 +119,8 @@ tab-background-end[selected=true]:-moz-locale-dir(ltr):not(:-moz-lwtheme)::befor
 	background-image: none !important;
 	background-color: transparent !important;
 	background-size: 100% 100%;
+	border: none !important;
+	border-radius: 0 !important;
 }
 
 .tab-background-end
