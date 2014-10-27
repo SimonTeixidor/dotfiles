@@ -33,11 +33,11 @@ cp bash/bashrc $DEST/.bashrc
 
 cp -r ncmpc $DEST/.ncmpc
 
-if [ ! -d "$DEST/.pentadactyl" ]; then
-	mkdir -p "$DEST/.pentadactyl/"
+if [ ! -d "$DEST/.vimperator" ]; then
+	mkdir -p "$DEST/.vimperator/"
 fi
-cp -r pentadactyl/colors $DEST/.pentadactyl/
-cp pentadactyl/pentadactylrc $DEST/.pentadactylrc
+cp -r vimperator/colors $DEST/.vimperator/
+cp vimperator/vimperatorrc $DEST/.vimperatorrc
 
 if [ ! -d "$DEST/.vim/colors" ]; then
 	mkdir -p "$DEST/.vim/colors"
