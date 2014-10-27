@@ -25,23 +25,19 @@ cp misc/xinitrc $DEST/.xinitrc
 
 cp scripts/startdwm $DEST/bin/
 
-cp ncmpcpp/config $DEST/.ncmpcpp/
-
-cp urxvt/Xdefaults $DEST/.Xdefaults
-
 cp vim/vimrc $DEST/.vimrc
 
 cp screen/screenrc $DEST/.screenrc
 
-cp zsh/zshrc $DEST/.zshrc
+cp bash/bashrc $DEST/.bashrc
+
+cp -r ncmpc $DEST/.ncmpc
 
 if [ ! -d "$DEST/.pentadactyl" ]; then
 	mkdir -p "$DEST/.pentadactyl/"
 fi
 cp -r pentadactyl/colors $DEST/.pentadactyl/
 cp pentadactyl/pentadactylrc $DEST/.pentadactylrc
-
-cp dircolors/dircolors $DEST/.dircolors
 
 if [ ! -d "$DEST/.vim/colors" ]; then
 	mkdir -p "$DEST/.vim/colors"
