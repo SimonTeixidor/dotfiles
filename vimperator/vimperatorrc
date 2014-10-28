@@ -7,6 +7,5 @@ noremap q d
 set hintchars=asdfjkl;
 set gui=nonavigation
 colorscheme molokai
-highlight Hint font-size:200%;color:white;background-color:red;padding:2px;
 set focuscontent
 source .vimperator/terminus.vimp
