@@ -8,6 +8,7 @@ if [ "$DEST" == "" ]; then
 fi
 
 cp mpd/mpdconf $DEST/.mpdconf
+cp urxvt/Xdefaults $DEST/.Xdefaults
 
 if [ ! -d "$DEST/.ncmpcpp" ]; then
 	mkdir "$DEST/.ncmpcpp"

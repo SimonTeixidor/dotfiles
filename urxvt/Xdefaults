@@ -1,0 +1,51 @@
+Xft.dpi:	96
+Xft*antialias:          true
+Xft*hinting:            true
+Xft*hintstyle:		hintfull
+Xft*rgba:		rgb
+
+
+URxvt*termName: rxvt-256color
+
+
+!URxvt*font:-*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*boldFont:-*-terminus-bold-*-*-*-*-*-*-*-*-*-*-*
+
+URxvt.font: xft:montecarlo:pixelsize=10:antialias=false:hinting=false
+
+URxvt*modifier: windows
+URxvt.intensityStyles: false
+urxvt*saveLines: 32767
+urxvt*scrollTtyKeypress: true
+urxvt*scrollTtyOutput: false
+urxvt*scrollBar: false
+urxvt*loginShell: true
+urxvt*internalBorder: 2
+urxvt*cutchars: "()*,<>[]{}|'
+urxvt*secondaryScroll:  true
+urdxvt*mapAlert:         true
+urxvt*utmpInhibit:      true
+urxvt*perl-lib: /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher
+urxvt*urlLauncher: /usr/bin/firefox
+urxvt*matcher.button: 1
+URxvt.urgentOnBell:  true
+
+URxvt.foreground: #f8f8f2
+URxvt.background: #262729
+URxvt.color0: #2a2a2a
+URxvt.color1: #f92671
+URxvt.color2: #a6e22e
+URxvt.color3: #fd971f
+URxvt.color4: #1692d0
+URxvt.color5: #9e6ffe
+URxvt.color6: #5e7175
+URxvt.color7: #ffffff
+URxvt.color8: #2f2f2f
+URxvt.color9: #ff669d
+URxvt.color10: #beed5f
+URxvt.color11: #e6db74
+URxvt.color12: #66d9ef
+URxvt.color13: #df92f6
+URxvt.color14: #a3babf
+URxvt.color15: #ffffff
