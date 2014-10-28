@@ -10,7 +10,7 @@ static const Bool showsystray = True;
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
    { "#999999", "#FFFFFF", "#1b1d1e" },  // 0 = normal
-   { "#9e6ffe", "#fd971f", "#1b1d1e" },  // 1 = selected
+   { "#9e6ffe", "#66d9ef", "#1b1d1e" },  // 1 = selected
    { "#1b1d1e", "#f92671", "#1b1d1e" },  // 2 = urgent/warning
    { "#1b1d1e", "#a6e22e", "#1b1d1e" },  // 3 = red
    { "#1b1d1e", "#66d9ef", "#1b1d1e" },  // 4 = blue
