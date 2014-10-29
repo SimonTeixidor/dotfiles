@@ -9,5 +9,5 @@ alias syncmusic="rsync -rtv --modify-window=3601 /mnt/warez/lossy /mnt/tmp"
 alias sudo="sudo "
 alias grep='grep --color=auto'
 dl() {
-	scp $* 192.168.0.10:/mnt/disk/torrents/
+	scp "$*" 192.168.0.10:/mnt/disk/torrents/
 }
