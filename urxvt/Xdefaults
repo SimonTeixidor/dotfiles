@@ -8,10 +8,10 @@ Xft*rgba:		rgb
 URxvt*termName: rxvt-256color
 
 
-!URxvt*font:-*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*
+URxvt*font:-*-montecarlo-medium-*-*-*-*-*-*-*-*-*-*-*
 !URxvt*boldFont:-*-terminus-bold-*-*-*-*-*-*-*-*-*-*-*
 
-URxvt.font: xft:montecarlo:pixelsize=10:antialias=false:hinting=false
+!URxvt.font: xft:montecarlo:pixelsize=10:antialias=false:hinting=false
 
 URxvt*modifier: windows
 URxvt.intensityStyles: false
