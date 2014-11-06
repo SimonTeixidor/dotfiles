@@ -30,7 +30,7 @@ cp vim/vimrc $DEST/.vimrc
 
 cp screen/screenrc $DEST/.screenrc
 
-cp bash/bashrc $DEST/.bashrc
+cp bash/profile $DEST/.profile
 
 cp -r ncmpc $DEST/.ncmpc
 
