@@ -3,3 +3,6 @@
 
 "firefox"
     Alt+b
+
+"dmenu_run"
+    Alt+m
