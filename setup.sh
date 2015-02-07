@@ -41,10 +41,6 @@ cp -r vimperator/colors $DEST/.vimperator/
 cp -r vimperator/terminus.vimp $DEST/.vimperator/
 cp vimperator/vimperatorrc $DEST/.vimperatorrc
 
-if [ ! -d "$DEST/.vim/colors" ]; then
-	mkdir -p "$DEST/.vim/colors"
-fi
-cp vim/molokai.vim $DEST/.vim/colors/
 
 if [ ! -d "$DEST/.wall.jpg" ]; then
 	wget https://presentingsweden.si.se/wp-content/uploads/sites/7/2013/07/palme_castro.jpg -O $DEST/.wall.jpg

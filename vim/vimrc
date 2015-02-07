@@ -1,7 +1,13 @@
-let g:molokai_original = 1
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'wting/rust.vim'
+call vundle#end()            " required
+filetype plugin indent on    " required
 set nocompatible
-set t_Co=256
-colorscheme molokai
 syntax on
 set number
 set nobackup
@@ -12,3 +18,34 @@ augroup WrapLineInTeXFile
     autocmd!
     autocmd FileType tex setlocal tw=80
 augroup END
+
+set t_Co=256
+hi Normal ctermfg=none
+hi Boolean ctermfg=215
+hi Comment ctermfg=239
+hi Conditional ctermfg=176 cterm=bold
+hi Constant ctermfg=138
+hi LineNr ctermfg=238
+hi CursorLine ctermbg=234 cterm=none
+hi CursorLineNr ctermfg=3
+hi FoldColumn ctermfg=239 ctermbg=234
+hi Folded ctermfg=239 ctermbg=234
+hi StatusLine ctermfg=234 ctermbg=239
+hi StatusLineNC ctermfg=7
+hi Statement ctermfg=173
+hi Number ctermfg=174
+hi MatchParen ctermfg=240
+hi ModeMsg ctermfg=239 ctermbg=234
+hi String ctermfg=146
+hi Operator ctermfg=215 cterm=none
+hi PreCondit ctermfg=9 cterm=none
+hi PreProc ctermfg=217
+hi Question ctermfg=12
+hi Repeat ctermfg=246
+hi Search ctermfg=173 ctermbg=247
+hi SpecialChar ctermfg=144
+hi SpecialComment ctermfg=216
+hi Special ctermfg=180
+hi SpecialKey ctermfg=181
+hi Title ctermfg=243
+hi Visual ctermfg=137

@@ -9,14 +9,14 @@ static const Bool showsystray = True;
 
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#999999", "#FFFFFF", "#1b1d1e" },  // 0 = normal
-   { "#9e6ffe", "#66d9ef", "#1b1d1e" },  // 1 = selected
-   { "#1b1d1e", "#f92671", "#1b1d1e" },  // 2 = urgent/warning
-   { "#1b1d1e", "#a6e22e", "#1b1d1e" },  // 3 = red
-   { "#1b1d1e", "#66d9ef", "#1b1d1e" },  // 4 = blue
-   { "#1b1d1e", "#ffffff", "#1b1d1e" },  // 5 = white
-   { "#1b1d1e", "#b6e354", "#1b1d1e" },  // 6 = green
-   { "#1b1d1e", "#feed6c", "#1b1d1e" },  // 7 = yellow
+   { "#D2C5BC", "#D2C5BC", "#0c0c0c" },  // 0 = normal
+   { "#BACD8F", "#E8C98E", "#0c0c0c" },  // 1 = selected
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 2 = urgent/warning
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 3 = red
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 4 = blue
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 5 = white
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 6 = green
+   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 7 = yellow
    // add more here
 };
 

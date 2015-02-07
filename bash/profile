@@ -1,11 +1,13 @@
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+HISTSIZE=
+HISTFILESIZE=
 HISTCONTROL=ignoredups:ignorespace
-export PS1="\[$black\]\w \[$none\]\$ "
-export EDITOR='vim'export PATH=$PATH:~/bin:/sbin
+export PS1="\[\e[1;32m\]\w \$ \[\e[0m\]"
+export EDITOR='vim'
 alias ls='ls --color=auto'
 alias makelossy="flac2opus.sh /mnt/warez/musik /mnt/warez/lossy"
-alias syncmusic="rsync --delete -rtv --modify-window=36001 /mnt/warez/lossy /mnt/tmp"
+alias syncmusic="rsync --delete -ruv --modify-window=36001 /mnt/warez/lossy /mnt/tmp"
 alias syncplaylist="for playlist in .mpd/playlists/*; do sed 's/.flac/.opus/g' "$playlist" | sed 's/^/\/<microSD1>\/lossy\//g' > ~/"$(basename "$playlist")"; done"
 alias sudo="sudo "
 alias grep='grep --color=auto'
@@ -34,4 +36,10 @@ extract () {
    fi
  }
 
+sc () {
+	echo $@ | socat - UNIX-CONNECT:/tmp/spotifyd 2>/dev/null
+}
+export -f sc
+
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib"
+export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/
