@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "montecarlo:pixelsize=10";
+static const char font[]            = "ohsnap:pixelsize=10";
 static const unsigned int systrayspacing = 2; /* systray spacing */
 static const Bool showsystray = True; 
 
