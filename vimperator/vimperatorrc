@@ -8,5 +8,5 @@ set hintchars=asdfjklö
 set gui=nonavigation
 colorscheme simon
 set focuscontent
-source .vimperator/terminus.vimp
+source .vimperator/ohsnap.vimp
 :highlight Hint font-size:12px;color:white;background-color:red;padding:2px;

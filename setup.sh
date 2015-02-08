@@ -38,7 +38,7 @@ if [ ! -d "$DEST/.vimperator" ]; then
 	mkdir -p "$DEST/.vimperator/"
 fi
 cp -r vimperator/colors $DEST/.vimperator/
-cp -r vimperator/terminus.vimp $DEST/.vimperator/
+cp -r vimperator/ohsnap.vimp $DEST/.vimperator/
 cp vimperator/vimperatorrc $DEST/.vimperatorrc
 
 

@@ -1,0 +1,11 @@
+hi CmdLine>* -append font-family: ohsnap; font-size: 8pt;
+hi CompDesc -append font-family: ohsnap; font-size: 8pt;
+hi CompTitle -append font-family: ohsnap; font-size: 8pt;
+hi CompItem>* -append font-family: ohsnap; font-size: 8pt;
+hi StatusLine -append font-family: ohsnap; font-size: 8pt;
+hi InfoMsg -append font-family: ohsnap; font-size: 8pt;
+hi ModeMsg -append font-family: ohsnap; font-size: 8pt;
+hi WarningMsg -append font-family: Terminu font-size: 8pt;
+hi MoreMsg -append font-family: ohsnap; font-size: 8pt;
+hi Title -append font-family: ohsnap; font-size: 8pt;
+hi Help -append font-family: ohsnap; font-size: 8pt;
