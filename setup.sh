@@ -28,6 +28,8 @@ cp scripts/startdwm $DEST/bin/
 
 cp vim/vimrc $DEST/.vimrc
 
+cp bash/dircolors $DEST/.dircolors
+
 cp screen/screenrc $DEST/.screenrc
 
 cp bash/profile $DEST/.profile
