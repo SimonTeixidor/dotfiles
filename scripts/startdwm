@@ -1,6 +1,8 @@
 setxkbmap -option terminate:ctrl_alt_bksp 
-xmodmap ~/.Xmodmap
+xmodmap /home/simon/.Xmodmap
+setxkbmap se
 xbindkeys
-hsetroot -center .wall.png
+hsetroot -fill .wall.png
 mpd
 ~/bin/stats  
+xflux  -l 58.4108 -g 15.6214
