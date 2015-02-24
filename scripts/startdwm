@@ -4,5 +4,5 @@ setxkbmap se
 xbindkeys
 hsetroot -fill .wall.png
 mpd
-~/bin/stats  
-xflux  -l 58.4108 -g 15.6214
+~/bin/stats
+redshift -l 58.4108:15.6214 &
