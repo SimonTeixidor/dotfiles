@@ -69,6 +69,7 @@ static const int nmaster      = 1;    /* number of clients in master area */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Tab,      focusstack,   {.i = +1 } },
+	{ MODKEY,                       XK_j,      focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
