@@ -7,7 +7,7 @@ HISTCONTROL=ignoredups:ignorespace
 export PS1="\[\e[1;32m\]\w \$ \[\e[0m\]"
 export EDITOR='vim'
 alias ls='ls --color=auto'
-alias makelossy="flac2mp3.py -s -n 8 -o /mnt/warez/lossy/ /mnt/warez/musik/"
+alias makelossy="flac2opus.sh /mnt/warez/musik /mnt/warez/lossy"
 alias syncmusic="rsync --delete -ruv --modify-window=36001 /mnt/warez/lossy /mnt/tmp"
 alias syncplaylist="for playlist in .mpd/playlists/*; do sed 's/.flac/.opus/g' "$playlist" | sed 's/^/\/<microSD1>\/lossy\//g' > ~/"$(basename "$playlist")"; done"
 alias sudo="sudo "

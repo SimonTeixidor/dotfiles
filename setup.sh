@@ -22,9 +22,6 @@ fi
 cp dwm $DEST/bin
 cd ..
 
-wget https://raw.githubusercontent.com/jasontbradshaw/flac2mp3/master/flac2mp3.py -O $DEST/bin/flac2mp3.py
-chmod +x $DEST/bin/flac2mp3.py
-
 cp misc/xinitrc $DEST/.xinitrc
 
 cp scripts/startdwm $DEST/bin/
