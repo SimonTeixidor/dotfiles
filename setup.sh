@@ -51,12 +51,23 @@ fi
 if [ ! -d "$DEST/.fonts" ]; then
 	mkdir "$DEST/.fonts"
 fi
-
+if [ ! -d "$DEST/.config/fontconfig" ]; then
+	mkdir "$DEST/.config/fontconfig"
+fi
+cp fonts/fonts.conf $DEST/.config/fontconfig
 wget http://www.bok.net/MonteCarlo/downloads/MonteCarlo-PCF.tgz -O $DEST/.fonts/MonteCarlo-PCF.tgz
+wget http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz -O  $DEST/.fonts/carlito.tar.gz
+wget http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/croscorefonts-1.23.0.tar.gz -O $DEST/.fonts/croscore.tar.gz
 tar zxfv $DEST/.fonts/MonteCarlo-PCF.tgz -C $DEST/.fonts/
+tar zxfv $DEST/.fonts/croscore.tar.gz -PCF.tgz -C $DEST/.fonts/
+tar zxfv $DEST/.fonts/carlito.tar.gz -PCF.tgz -C $DEST/.fonts/
 mv $DEST/.fonts/MonteCarlo-PCF/* $DEST/.fonts/
-rm -rf $DEST/.fonts/MonteCarlo-PCF $DEST/.fonts/MonteCarlo-PCF.tgz
+mv $DEST/.fonts/crosextrafonts-carlito-20130920/* $DEST/.fonts/
+mv $DEST/.fonts/croscorefonts-1.23.0/* $DEST/.fonts/
+rm -rf $DEST/.fonts/MonteCarlo-PCF $DEST/.fonts/MonteCarlo-PCF.tgz $DEST/.fonts/croscorefonts-1.23.0/ \
+	$DEST/.fonts/crosextrafonts-carlito-20130920/ $DEST/.fonts/carlito.tar.gz $DEST/.fonts/croscore.tar.gz
 mkfontdir $DEST/.fonts
+mkfontscale $DEST/.fonts
 
 cp xmodmap/Xmodmap $DEST/.Xmodmap
 cp xbindkeys/xbindkeysrc $DEST/.xbindkeysrc
