@@ -4,7 +4,7 @@ bind '"\e[B": history-search-forward'
 HISTSIZE=
 HISTFILESIZE=
 HISTCONTROL=ignoredups:ignorespace
-export PS1="\[\e[1;32m\]\w \$ \[\e[0m\]"
+export PS1="\[\e[1;32m\]\w \\$\[$(tput sgr0)\] \[\e[0m\]"
 export EDITOR='vim'
 alias ls='ls --color=auto'
 alias makelossy="flac2opus.sh /mnt/storage/musik /mnt/storage/lossy"
