@@ -14,6 +14,12 @@ if [ ! -d "$DEST/.ncmpcpp" ]; then
 	mkdir "$DEST/.ncmpcpp"
 fi
 
+if [ ! -d "$DEST/.vim/colors" ]; then
+	mkdir -p "$DEST/.vim/colors"
+fi
+
+wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -O $DEST/.vim/colors/hybrid.vim
+
 cd dwm-6.0
 make
 if [ ! -d "$DEST/bin" ]; then
@@ -44,8 +50,8 @@ cp -r vimperator/ohsnap.vimp $DEST/.vimperator/
 cp vimperator/vimperatorrc $DEST/.vimperatorrc
 
 
-if [ ! -d "$DEST/.wall.jpg" ]; then
-	wget https://presentingsweden.si.se/wp-content/uploads/sites/7/2013/07/palme_castro.jpg -O $DEST/.wall.jpg
+if [ ! -d "$DEST/.wall.png" ]; then
+	wget http://static.simpledesktops.com/uploads/desktops/2013/07/19/bond.png -O $DEST/.wall.png
 fi
 
 if [ ! -d "$DEST/.fonts" ]; then

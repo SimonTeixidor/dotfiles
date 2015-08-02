@@ -5,18 +5,13 @@ static const char font[]            = "ohsnap:pixelsize=10";
 static const unsigned int systrayspacing = 2; /* systray spacing */
 static const Bool showsystray = True; 
 
-#define NUMCOLORS 8
+#define NUMCOLORS 3
 
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#D2C5BC", "#D2C5BC", "#0c0c0c" },  // 0 = normal
-   { "#BACD8F", "#E8C98E", "#0c0c0c" },  // 1 = selected
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 2 = urgent/warning
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 3 = red
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 4 = blue
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 5 = white
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 6 = green
-   { "#1b1d1e", "#AA7E87", "#0c0c0c" },  // 7 = yellow
+   { "#8ABEB7", "#707880", "#1D1F21" },  // 0 = normal
+   { "#C5C8C6", "#C5C8C6", "#1D1F21" },  // 1 = selected
+   { "#1D1F21", "#85678F", "#1D1F21" },  // 2 = status
    // add more here
 };
 

@@ -1,1 +1,5 @@
-host = 192.168.0.119
+host = 127.0.0.1
+enable-colors = yes
+color background = none
+color title = brightblue
+color list = white
