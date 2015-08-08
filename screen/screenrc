@@ -4,4 +4,4 @@ defbce "on"
 startup_message off
 shell -$SHELL
 hardstatus             alwayslastline                                                                                                                          
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+hardstatus string '%{= dw}%=%-w%{= dW}%t%{= dw}%+w%='
