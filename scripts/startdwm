@@ -5,4 +5,4 @@ xbindkeys
 hsetroot -fill .wall.png
 mpd
 ~/bin/stats
-redshift -l 58.4108:15.6214 &
+redshift -l 50.846965:4.35238 &
