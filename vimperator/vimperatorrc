@@ -4,9 +4,11 @@ nmap f <C-i>
 noremap e f
 noremap E F
 noremap q d
-set hintchars=asdfjklö
+set hintchars=asdfjkl;
 set gui=nonavigation
 colorscheme simon
 set focuscontent
 source .vimperator/ohsnap.vimp
 :highlight Hint font-size:12px;color:white;background-color:red;padding:2px;
+:noremap j 3j
+:noremap k 3k
