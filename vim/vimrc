@@ -19,4 +19,4 @@ augroup WrapLineInTeXFile
     autocmd FileType tex setlocal tw=80
 augroup END
 
-colorscheme hybrid
+colorscheme sourcerer

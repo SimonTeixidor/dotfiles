@@ -18,7 +18,7 @@ if [ ! -d "$DEST/.vim/colors" ]; then
 	mkdir -p "$DEST/.vim/colors"
 fi
 
-wget https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -O $DEST/.vim/colors/hybrid.vim
+wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.vim/colors/sourcerer.vim
 
 cd dwm-6.0
 make
