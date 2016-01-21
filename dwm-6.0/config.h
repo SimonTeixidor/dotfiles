@@ -9,9 +9,9 @@ static const Bool showsystray = True;
 
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#333333", "#BBBBBB", "#666666" },  // 0 = normal
-   { "#EEEEEE", "#FFFFFF", "#666666" },  // 1 = selected
-   { "#EEEEEE", "#BBBBBB", "#666666" },  // 2 = status
+   { "#333333", "#BBBBBB", "#3A3A3A" },  // 0 = normal
+   { "#EEEEEE", "#FFFFFF", "#3A3A3A" },  // 1 = selected
+   { "#EEEEEE", "#BBBBBB", "#3A3A3A" },  // 2 = status
    // add more here
 };
 
