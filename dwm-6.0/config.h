@@ -6,12 +6,15 @@ static const unsigned int systrayspacing = 2; /* systray spacing */
 static const Bool showsystray = True; 
 
 #define NUMCOLORS 3
+#define BG "#1D1F21"
+#define SELECTED_FG "#C5C8C6"
+#define FG "#707880"
 
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#333333", "#BBBBBB", "#3A3A3A" },  // 0 = normal
-   { "#EEEEEE", "#FFFFFF", "#3A3A3A" },  // 1 = selected
-   { "#EEEEEE", "#BBBBBB", "#3A3A3A" },  // 2 = status
+   { FG, FG, BG },  // 0 = normal
+   { SELECTED_FG, SELECTED_FG, BG },  // 1 = selected
+   { FG, FG, BG },  // 2 = status
    // add more here
 };
 
