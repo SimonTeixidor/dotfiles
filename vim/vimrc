@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set nocompatible
@@ -18,5 +19,9 @@ augroup WrapLineInTeXFile
     autocmd!
     autocmd FileType tex setlocal tw=80
 augroup END
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
 
 colorscheme sourcerer
+let g:rustfmt_autosave = 1
+let g:ycm_rust_src_path = '/home/simon/.multirust/src'
