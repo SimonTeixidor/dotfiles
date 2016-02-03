@@ -1,6 +1,6 @@
 setxkbmap -option terminate:ctrl_alt_bksp 
-xmodmap /home/simon/.Xmodmap
 setxkbmap us
+xmodmap /home/simon/.Xmodmap
 xbindkeys
 hsetroot -fill .wall.png
 mpd
