@@ -4,8 +4,8 @@ Xft*hinting:            true
 Xft*hintstyle:		hintfull
 Xft*rgba:		rgb
 
-urxvt*font:             xft:ohsnap:pixelsize=10:antialias=false
-urxvt*boldFont:             xft:ohsnap:pixelsize=10:antialias=false
+urxvt*font:             xft:GohuFont:pixelsize=11
+urxvt*boldFont:             xft:GohuFont:pixelsize=11
 
 URxvt*modifier: windows
 URxvt.intensityStyles: false

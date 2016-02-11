@@ -9,8 +9,8 @@
 
 *
 {
-    font-family: "ohsnap";
-    font-size: 10px;
+    font-family: "GohuFont";
+    font-size: 11px;
 }
 
 :root {
@@ -20,13 +20,13 @@
     /*--bg-light: #1D1F21; --bg-dark: #1D1F21;
     --fg-light: #C5C8C6; --fg-dark: #707880;*/
     --tab-height: 16px; /*--tab-triangle-correction: -1px; */--tab-strip-margin: -12px;
-    --tab-fonts: "ohsnap", monospace --tab-font-size: 10pt;
+    --tab-fonts: "GohuFont", monospace --tab-font-size: 10pt;
     --tab-triangle: none; /* block | none */
 
     /* URL VARIABLES */
     --url-background: var(--bg-light); --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 5px;
-    --url-fonts: "Terminus (TTF)", monospace; --url-font-size: 10pt;
+    --url-fonts: "GohuFont", monospace; --url-font-size: 11px;
     --url-text-align: center; /* left | center | right */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
