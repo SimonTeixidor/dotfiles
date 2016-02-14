@@ -1,7 +1,7 @@
 attrcolor b ".I"
-termcapinfo rxvt-unicode
 defbce "on"
 startup_message off
 shell -$SHELL
-hardstatus             alwayslastline                                                                                                                          
+term screen-256color
+hardstatus             alwayslastline                                                                                                     
 hardstatus string '%{= dw}%=%-w%{= dW}%t%{= dw}%+w%='
