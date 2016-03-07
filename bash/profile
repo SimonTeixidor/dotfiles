@@ -4,7 +4,11 @@ bind '"\e[B": history-search-forward'
 HISTSIZE=
 HISTFILESIZE=
 HISTCONTROL=ignoredups:ignorespace
-export PS1="\[\e[1;32m\]\w \\$\[$(tput sgr0)\] \[\e[0m\]"
+if [ -n "$SSH_CLIENT" ]; then
+	export PS1="\u@\h \w> "
+else 
+	export PS1="\[\e[1;32m\]\w \\$\[$(tput sgr0)\] \[\e[0m\]"
+fi
 export EDITOR='vim'
 alias ls='ls --color=auto'
 alias makelossy="flac2opus.sh /mnt/storage/musik /mnt/storage/lossy"
