@@ -5,22 +5,22 @@ static const char font[]            = "GohuFont:pixelsize=11";
 static const unsigned int systrayspacing = 2; /* systray spacing */
 static const Bool showsystray = True; 
 
-#define NUMCOLORS 3
-#define BG "#1D1F21"
-#define SELECTED_FG "#C5C8C6"
-#define FG "#707880"
+#define NUMCOLORS 6
+
 
 static const char colors[NUMCOLORS][ColLast][8] = {
-   // border   foreground  background
-   { FG, FG, BG },  // 0 = normal
-   { SELECTED_FG, SELECTED_FG, BG },  // 1 = selected
-   { FG, FG, BG },  // 2 = status
-   // add more here
+    { "#286e75", "#286e75", "#002b36" },
+    { "#DCDCDC", "#DCDCDC", "#002b36" }, 
+    { "#af8700", "#268bd2", "#002b36" },
+    { "#286e75", "#dc322f", "#002b36" },
+    { "#286e75", "#286e75", "#002b36" },
+    { "#002b36", "#dc322f", "#002b36" },
+    { "#286e75", "#286e75", "#002b36" },
 };
 
 static Bool resizehints = False;
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx = 0; // Gap pixel between windows
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx = 10; // Gap pixel between windows
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
