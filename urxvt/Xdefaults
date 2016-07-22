@@ -25,6 +25,8 @@ urxvt*url-launcher: /usr/bin/firefox
 urxvt*matcher.button: 1
 URxvt.urgentOnBell:  true
 
+urxvt*transparent: true
+urxvt*shading: 7
 *background: #1D1F21
 *foreground: #C5C8C6
 ! black
@@ -51,3 +53,4 @@ URxvt.urgentOnBell:  true
 ! white
 *color7: #707880
 *color15: #C5C8C6
+
