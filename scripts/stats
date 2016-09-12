@@ -1,0 +1,13 @@
+#!/bin/bash
+
+bat() {
+	BAT=$(acpi | cut -d% -f1 | rev | cut -d\  -f 1 | rev)
+	echo -e "\x02Bat: $BAT%"
+}
+
+dte() {
+	DTE=$(date +"%d.%m.%y %H:%M")
+	echo -e "\x02Time: $DTE"
+}
+
+xsetroot -name "$(bat) | $(dte)"

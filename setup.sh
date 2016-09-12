@@ -57,7 +57,11 @@ fi
 if [ ! -d "$DEST/.fonts" ]; then
 	mkdir "$DEST/.fonts"
 fi
+
 wget https://github.com/koemaeda/gohufont-ttf/raw/master/gohufont-11.ttf -O "$DEST/.fonts/gohufont-11.ttf"
+
+cp scripts/stats "$DEST/bin/"
+
 mkfontdir $DEST/.fonts
 mkfontscale $DEST/.fonts
 
