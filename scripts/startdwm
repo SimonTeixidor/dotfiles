@@ -3,6 +3,6 @@ setxkbmap us
 xmodmap /home/simon/.Xmodmap
 xbindkeys
 hsetroot -fill .wall.jpg
-mpd
 ~/bin/stats
 redshift -l 50.846965:4.35238 &
+compton -c -e 0.5 -b
