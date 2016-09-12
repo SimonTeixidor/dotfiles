@@ -50,8 +50,8 @@ cp -r vimperator/ohsnap.vimp $DEST/.vimperator/
 cp vimperator/vimperatorrc $DEST/.vimperatorrc
 
 
-if [ ! -d "$DEST/.wall.png" ]; then
-	wget http://static.simpledesktops.com/uploads/desktops/2013/07/19/bond.png -O $DEST/.wall.png
+if [ ! -d "$DEST/.wall.jpg" ]; then
+	wget http://i.imgur.com/SaDyvKE.jpg0 -O $DEST/.wall.jpg
 fi
 
 if [ ! -d "$DEST/.fonts" ]; then

@@ -2,7 +2,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
 xmodmap /home/simon/.Xmodmap
 xbindkeys
-hsetroot -fill .wall.png
+hsetroot -fill .wall.jpg
 mpd
 ~/bin/stats
 redshift -l 50.846965:4.35238 &
