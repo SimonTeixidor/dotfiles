@@ -67,3 +67,5 @@ mkfontscale $DEST/.fonts
 
 cp xmodmap/Xmodmap $DEST/.Xmodmap
 cp xbindkeys/xbindkeysrc $DEST/.xbindkeysrc
+
+cp misc/inputrc $DEST/.inputrc
