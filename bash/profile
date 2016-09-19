@@ -54,3 +54,4 @@ export -f sc
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib"
 export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/:/usr/sbin
+alias today="date +\"%d-%m-%y\""
