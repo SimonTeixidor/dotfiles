@@ -182,3 +182,7 @@
     scrollbar[orient='vertical'] > scrollbarbutton { min-height: 0 !important; }
     scrollbar[orient='horizontal'] > scrollbarbutton { min-width: 0 !important; }
 }
+
+notification[value="plugin-hidden"] {
+	  display: none !important;
+}
