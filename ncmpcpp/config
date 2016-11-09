@@ -1,0 +1,2 @@
+mpd_host = "192.168.0.16"
+media_library_primary_tag = album_artist

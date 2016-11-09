@@ -10,9 +10,7 @@ fi
 cp mpd/mpdconf $DEST/.mpdconf
 cp urxvt/Xdefaults $DEST/.Xdefaults
 
-if [ ! -d "$DEST/.ncmpcpp" ]; then
-	mkdir "$DEST/.ncmpcpp"
-fi
+cp -r ncmpcpp $DEST/.ncmpcpp
 
 if [ ! -d "$DEST/.vim/colors" ]; then
 	mkdir -p "$DEST/.vim/colors"
@@ -39,8 +37,6 @@ cp bash/dircolors $DEST/.dircolors
 cp screen/screenrc $DEST/.screenrc
 
 cp bash/profile $DEST/.profile
-
-cp -r ncmpc $DEST/.ncmpc
 
 if [ ! -d "$DEST/.vimperator" ]; then
 	mkdir -p "$DEST/.vimperator/"
