@@ -1,7 +1,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME=$HOME/.local/share
 
-export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresourses"
+export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresources"
 export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
 export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
