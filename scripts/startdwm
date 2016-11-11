@@ -1,8 +1,7 @@
 setxkbmap -option terminate:ctrl_alt_bksp 
 setxkbmap us
-xmodmap /home/simon/.Xmodmap
-xbindkeys
-hsetroot -fill .wall.jpg
+xmodmap /home/simon/.config/X11/Xmodmap
+xbindkeys -f /home/simon/.config/X11/xbindkeysrc
+hsetroot -fill .local/share/wall.jpg
 ~/bin/stats
-redshift -l 50.846965:4.35238 &
 compton -c -e 0.5 -b

@@ -1,4 +1,18 @@
-eval `dircolors ~/.dircolors`
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME=$HOME/.local/share
+
+export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresourses"
+export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
+export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export HISTFILE="$XDG_DATA_HOME"/bash/history
+export GNUPGHOME=${XDG_CONFIG_HOME}/gnupg
+export THEANORC=${XDG_CONFIG_HOME}/theanorc
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+
+eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 HISTSIZE=
@@ -50,8 +64,8 @@ extract () {
 sc () {
 	echo $@ | socat - UNIX-CONNECT:/tmp/spotifyd 2>/dev/null
 }
+
 export -f sc
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib"
 export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/:/usr/sbin
-alias today="date +\"%d-%m-%y\""

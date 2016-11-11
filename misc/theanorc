@@ -1,0 +1,11 @@
+[global]
+floatX = float32
+device = gpu0
+mode=FAST_RUN
+base_compiledir="/home/simon/.local/share/theano/"
+
+[nvcc]
+fastmath = False
+
+[lib]
+cnmem = 1

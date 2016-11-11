@@ -1,7 +1,12 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
+let g:netrw_dirhistmax = 0
+
+let $MYVIMDIR=expand("<sfile>:h")
+source $MYVIMDIR/xdg.vim
+
+set rtp+=$MYVIMDIR/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
@@ -25,3 +30,4 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 colorscheme sourcerer
 let g:rustfmt_autosave = 1
 let g:ycm_rust_src_path = '/home/simon/.multirust/src'
+source $MYVIMDIR/xdg.vim
