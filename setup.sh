@@ -49,12 +49,12 @@ cp screen/screenrc $DEST/.config/screen/screenrc
 
 cp bash/profile $DEST/.bash_profile
 
-if [ ! -d "$DEST/.vimperator" ]; then
-	mkdir -p "$DEST/.vimperator/"
+if [ ! -d "$DEST/.config/vimperator" ]; then
+	mkdir -p "$DEST/.config/vimperator/"
 fi
-cp -r vimperator/colors $DEST/.vimperator/
-cp -r vimperator/ohsnap.vimp $DEST/.vimperator/
-cp vimperator/vimperatorrc $DEST/.vimperatorrc
+cp -r vimperator/colors $DEST/.config/vimperator/
+cp -r vimperator/ohsnap.vimp $DEST/.config/vimperator/
+cp vimperator/vimperatorrc $DEST/.config/vimperator/vimperatorrc
 
 
 if [ ! -d "$DEST/.local/share/wall.jpg" ]; then
