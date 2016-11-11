@@ -37,8 +37,14 @@ cp scripts/startdwm $DEST/bin/
 cp vim/vimrc $DEST/.config/vim/
 cp vim/xdg.vim $DEST/.config/vim/
 
+if [ ! -d "$DEST/.config/dircolors" ]; then
+	mkdir -p "$DEST/.config/dircolors"
+fi
 cp bash/dircolors $DEST/.config/dircolors/config
 
+if [ ! -d "$DEST/.config/screen" ]; then
+	mkdir -p "$DEST/.config/screen"
+fi
 cp screen/screenrc $DEST/.config/screen/screenrc
 
 cp bash/profile $DEST/.bash_profile
@@ -63,8 +69,8 @@ wget https://github.com/koemaeda/gohufont-ttf/raw/master/gohufont-11.ttf -O "$DE
 
 cp scripts/stats "$DEST/bin/"
 
-mkfontdir $DEST/.fonts
-mkfontscale $DEST/.fonts
+mkfontdir $DEST/.local/share/fonts
+mkfontscale $DEST/.local/share/fonts
 
 cp xmodmap/Xmodmap $DEST/.config/X11/Xmodmap
 cp xbindkeys/xbindkeysrc $DEST/.config/X11/xbindkeysrc
