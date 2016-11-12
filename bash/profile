@@ -1,6 +1,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME=$HOME/.local/share
-export XDG_DATA_HOME=$HOME/.cache
+export XDG_CACHE_HOME=$HOME/.cache
 
 export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresourses"
 export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
@@ -17,6 +17,7 @@ export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 export LESSHISTFILE=-
+export CARGO_HOME="$XDG_CACHE_HOME"
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
