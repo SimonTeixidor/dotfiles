@@ -1,7 +1,8 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_DATA_HOME=$HOME/.cache
 
-export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresources"
+export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresourses"
 export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
 export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
@@ -11,6 +12,11 @@ export HISTFILE="$XDG_DATA_HOME"/bash/history
 export GNUPGHOME=${XDG_CONFIG_HOME}/gnupg
 export THEANORC=${XDG_CONFIG_HOME}/theanorc
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
+export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
+export LESSHISTFILE=-
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
