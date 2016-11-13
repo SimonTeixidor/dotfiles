@@ -57,8 +57,8 @@ cp -r vimperator/ohsnap.vimp $DEST/.config/vimperator/
 cp vimperator/vimperatorrc $DEST/.config/vimperator/vimperatorrc
 
 
-if [ ! -d "$DEST/.local/share/wall.jpg" ]; then
-	wget http://i.imgur.com/SaDyvKE.jpg0 -O $DEST/.local/share/wall.jpg
+if [ ! -d "$DEST/.local/share/" ]; then
+	mkdir "$DEST/.local/share"
 fi
 
 if [ ! -d "$DEST/.local/share/fonts" ]; then
@@ -81,3 +81,4 @@ fi
 cp misc/inputrc $DEST/.config/readline/
 
 cp misc/theanorc $DEST/.config/
+cp misc/wall.png $DEST/.local/share/

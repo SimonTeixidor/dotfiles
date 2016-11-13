@@ -2,6 +2,6 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
 xmodmap /home/simon/.config/X11/Xmodmap
 xbindkeys -f /home/simon/.config/X11/xbindkeysrc
-hsetroot -fill .local/share/wall.jpg
+hsetroot -fill .local/share/wall.png
 ~/bin/stats
 compton -c -e 0.5 -b
