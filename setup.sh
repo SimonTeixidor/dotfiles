@@ -85,3 +85,4 @@ cp misc/inputrc $DEST/.config/readline/
 
 cp misc/theanorc $DEST/.config/
 cp misc/wall.png $DEST/.local/share/
+cp misc/user-dirs.dirs $DEST/.config/
