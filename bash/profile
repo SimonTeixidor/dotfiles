@@ -18,6 +18,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 export LESSHISTFILE=-
 export CARGO_HOME="$XDG_CACHE_HOME"
+alias irssi='irssi --home=~/.config/irssi'
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
