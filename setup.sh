@@ -14,6 +14,9 @@ if [ ! -d "$DEST/.config/X11/" ]; then
 fi
 cp urxvt/Xdefaults $DEST/.config/X11/Xresources
 
+if [ ! -d "$DEST/.config/ncmpcpp/" ]; then
+	mkdir "$DEST/.config/ncmpcpp/"
+fi
 cp -r ncmpcpp $DEST/.config/ncmpcpp
 
 if [ ! -d "$DEST/.config/vim/colors" ]; then
