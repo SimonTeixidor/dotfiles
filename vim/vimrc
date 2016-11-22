@@ -7,7 +7,7 @@ let $MYVIMDIR=expand("<sfile>:h")
 source $MYVIMDIR/xdg.vim
 
 set rtp+=$MYVIMDIR/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin("~/.config/vim/bundle")
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Valloric/YouCompleteMe'
