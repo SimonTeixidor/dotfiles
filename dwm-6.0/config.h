@@ -11,7 +11,7 @@ static const Bool showsystray = True;
 static const char colors[NUMCOLORS][ColLast][8] = {
     { "#286e75", "#286e75", "#002b36" },
     { "#DCDCDC", "#DCDCDC", "#002b36" }, 
-    { "#af8700", "#268bd2", "#002b36" },
+    { "#af8700", "#FF0000", "#002b36" },
     { "#286e75", "#dc322f", "#002b36" },
     { "#286e75", "#286e75", "#002b36" },
     { "#002b36", "#dc322f", "#002b36" },
