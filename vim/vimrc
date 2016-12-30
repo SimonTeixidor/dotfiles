@@ -29,5 +29,6 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 
 colorscheme sourcerer
 let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
 let g:ycm_rust_src_path = '/home/simon/.multirust/src'
 source $MYVIMDIR/xdg.vim
