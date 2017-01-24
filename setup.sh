@@ -76,7 +76,6 @@ mkfontdir $DEST/.local/share/fonts
 mkfontscale $DEST/.local/share/fonts
 
 cp xmodmap/Xmodmap $DEST/.config/X11/Xmodmap
-cp xbindkeys/xbindkeysrc $DEST/.config/X11/xbindkeysrc
 
 if [ ! -d "$DEST/.config/readline" ]; then
 	mkdir "$DEST/.config/readline"

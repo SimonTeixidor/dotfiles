@@ -1,8 +1,0 @@
-"(urxvt &)"
-    Shift+Alt+Return
-
-"(firefox &)"
-    Alt+b
-
-"(dmenu_run &)"
-    Alt+m
