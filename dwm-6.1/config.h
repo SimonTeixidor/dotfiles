@@ -1,21 +1,21 @@
 /* See LICENSE file for copyright and license details. */
 
-/* appearance */
-static const char font[]            = "GohuFont:pixelsize=11";
 static const unsigned int systrayspacing = 2; /* systray spacing */
 static const Bool showsystray = True; 
 
-#define NUMCOLORS 6
+#define NUMCOLORS 4
 
+#define bgCol "#232C33"
+#define normFg "#70838C"
+#define selFg "#DCDCDC"
+#define font "GohuFont:pixelsize=11"
 
-static const char colors[NUMCOLORS][ColLast][8] = {
-    { "#286e75", "#286e75", "#002b36" },
-    { "#DCDCDC", "#DCDCDC", "#002b36" }, 
-    { "#af8700", "#FF0000", "#002b36" },
-    { "#286e75", "#dc322f", "#002b36" },
-    { "#286e75", "#286e75", "#002b36" },
-    { "#002b36", "#dc322f", "#002b36" },
-    { "#286e75", "#286e75", "#002b36" },
+static const char *fonts[]            = { font };
+static const char colors[NUMCOLORS][MAXCOLORS][8] = {
+    { "#286E75", normFg, bgCol },
+    { "#DCDCDC", selFg, bgCol }, 
+    { "#AF8700", "#FF0000", bgCol },
+    { "#000000", "#7c9fa6", bgCol }
 };
 
 static Bool resizehints = False;
@@ -25,48 +25,43 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
-static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=", True, tile },    /* first entry is default */
-};
 
 /* tagging */
-static const Tag tags[] = {
-    /* name layout mfact nmaster*/
-    { "A", &layouts[0], -1, -1 },
-    { "B", &layouts[0], -1, -1 },
-    { "C", &layouts[0], -1, -1 },
-    { "D", &layouts[0], -1, -1 },
-    { "E", &layouts[0], -1, -1 },
-};
+static const char *tags[] = { "web", "editor", "music", "other" };
 
-static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-
-};
+static const Rule rules[0];
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster      = 1;    /* number of clients in master area */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     = 1;    /* number of clients in master area */
+
+static const Layout layouts[] = {
+	/* symbol     arrange function */
+	{ "[]=",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
+};
 
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      toggleview,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      view,     {.ui = 1 << TAG} }, \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
+static char dmenumon[2] = "0";
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", bgCol, "-nf", normFg, "-sb",  bgCol, "-sf", selFg, NULL };
+static const char *termcmd[] = { "urxvt", NULL };
+static const char *firefoxcmd[] = { "firefox", NULL };
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_Tab,      focusstack,   {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_b,      spawn,          {.v = firefoxcmd } },
+	{ MODKEY,                       XK_Tab,    focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
