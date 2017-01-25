@@ -25,7 +25,7 @@ fi
 
 wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
 
-cd dwm-6.0
+cd dwm-6.1
 make
 if [ ! -d "$DEST/bin" ]; then
 	mkdir "$DEST/bin"
