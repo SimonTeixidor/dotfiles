@@ -15,11 +15,11 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #1D1F21; --bg-dark: #1D1F21;
-    --fg-light: #C5C8C6; --fg-dark: #707880;
+    --bg-light: #BF9C86; --bg-dark: #70838c;
+    --fg-light: #232c33; --fg-dark: #f0f0f0;
     /*--bg-light: #1D1F21; --bg-dark: #1D1F21;
     --fg-light: #C5C8C6; --fg-dark: #707880;*/
-    --tab-height: 16px; /*--tab-triangle-correction: -1px; */--tab-strip-margin: -12px;
+    --tab-height: 14px; /*--tab-triangle-correction: -1px; */--tab-strip-margin: -12px;
     --tab-fonts: "GohuFont", monospace --tab-font-size: 10pt;
     --tab-triangle: none; /* block | none */
 
