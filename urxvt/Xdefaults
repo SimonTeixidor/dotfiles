@@ -4,8 +4,8 @@ Xft*hinting:            true
 Xft*hintstyle:		hintfull
 Xft*rgba:		rgb
 
-URxvt*font: xft:gohufont:pixelsize=11
-URxvt*Boldfont: xft:gohufont:pixelsize=11:style=bold
+URxvt*font: xft:gohufont:pixelsize=11,xft:Monospace
+URxvt*Boldfont: xft:gohufont:pixelsize=11:style=bold,xft:Monospace
 
 URxvt*modifier: windows
 URxvt.intensityStyles: false
