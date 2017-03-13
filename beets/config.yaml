@@ -1,0 +1,32 @@
+plugins: discogs replaygain smartplaylist zero acousticbrainz types
+directory: ~/music
+library: ~/.beets.blb
+original_date: yes
+replaygain:
+    backend: bs1770gain
+    overwrite: yes
+
+paths:
+    default: $albumartist/$album%aunique{}/$track $title
+
+smartplaylist:
+    relative_to: ~/music
+    playlist_dir: ~/playlists
+    playlists:
+        - name: bn.m3u
+          query: 'label:"Blue Note"'
+        - name: new.m3u
+          query: 'added+'
+        - name: late_night_jazz.m3u
+          query: 'genre:jazz mood_relaxed:0.8..1.0'
+
+zero:
+    fields: [artist_sort,  albumartist_sort]
+    update_database: true
+
+types:
+    mood_relaxed: float
+    bpm: int
+    mood_acoustic: float
+    mood_happy: float
+    mood_sad: float
