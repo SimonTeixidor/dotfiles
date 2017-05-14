@@ -1,11 +1,11 @@
 Xft.dpi:	96
-Xft*antialias:          true
+Xft*antialias:          false
 Xft*hinting:            true
 Xft*hintstyle:		hintfull
 Xft*rgba:		rgb
 
 URxvt*font: xft:gohufont:pixelsize=11,xft:Monospace
-URxvt*Boldfont: xft:gohufont:pixelsize=11:style=bold,xft:Monospace
+URxvt*Boldfont: xft:gohufont:pixelsize=11:xft:Monospace
 
 URxvt*modifier: windows
 URxvt.intensityStyles: false
@@ -25,39 +25,22 @@ urxvt*url-launcher: /usr/bin/firefox
 urxvt*matcher.button: 1
 URxvt.urgentOnBell:  true
 
-! special
-*foreground:   #f0f0f0
-*background:   #232c33
-
-! black
-! Second black is grey
-*color0:       #232c33
-*color8:       #70838c
-
-! red
-*color1:       #99736e
-*color9:       #99736e
-
-! green
-*color2:       #78a090
-*color10:      #78a090
-
-! yellow
-*color3:       #bfb7a1
-*color11:      #bfb7a1
-
-! blue
-*color4:       #7c9fa6
-*color12:      #7c9fa6
-
-! magenta
-*color5:       #BF9C86
-*color13:      #BF9C86
-
-! cyan
-*color6:       #99BFBA
-*color14:      #99BFBA
-
-! white
-*color7:       #f0f0f0
-*color15:      #f0f0f0
+urxvt.foreground: 	#E8DFD6
+urxvt.background: 	#021B21
+urxvt.cursorColor:  #E8DFD6
+urxvt.color0:       #032C36
+urxvt.color8:       #065F73
+urxvt.color1:       #C2454E
+urxvt.color9:       #EF5847
+urxvt.color2:       #7CBF9E
+urxvt.color10:      #A2D9B1
+urxvt.color3:       #8A7A63
+urxvt.color11:      #BEB090
+urxvt.color4:       #2E3340
+urxvt.color12:      #61778D
+urxvt.color5:       #FF5879
+urxvt.color13:      #FF99A1
+urxvt.color6:       #44B5B1
+urxvt.color14:      #9ED9D8
+urxvt.color7:       #F2F1B9
+urxvt.color15:      #F6F6C9

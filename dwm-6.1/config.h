@@ -5,14 +5,14 @@ static const Bool showsystray = True;
 
 #define NUMCOLORS 4
 
-#define bgCol "#232C33"
-#define normFg "#70838C"
-#define selFg "#DCDCDC"
+#define bgCol "#021B21"
+#define normFg "#44B5B1"
+#define selFg "#E8DFD6"
 #define font "GohuFont:pixelsize=11"
 
 static const char *fonts[]            = { font };
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
-    { "#286E75", normFg, bgCol },
+    { "#555555", normFg, bgCol },
     { "#DCDCDC", selFg, bgCol }, 
     { "#AF8700", "#FF0000", bgCol },
     { "#000000", "#7c9fa6", bgCol }
