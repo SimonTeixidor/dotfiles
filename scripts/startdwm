@@ -2,4 +2,5 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
 xmodmap /home/simon/.config/X11/Xmodmap
 hsetroot -full .local/share/wall.png
+compton -c -b
 xsetroot -name "$( date +"%F %R" )"
