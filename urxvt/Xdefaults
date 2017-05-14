@@ -2,7 +2,7 @@ Xft*antialias:          true
 Xft*hinting:            true
 Xft*hintstyle:		hintmedium
 Xft*rgba:		rgb
-Xft.dpi:		131
+Xft.dpi:		96
 
 URxvt*font: xft:gohufont:pixelsize=11,xft:Monospace
 URxvt*Boldfont: xft:gohufont:pixelsize=11:xft:Monospace
