@@ -56,16 +56,11 @@ if [ ! -d "$DEST/.config/vimperator" ]; then
 	mkdir -p "$DEST/.config/vimperator/"
 fi
 cp -r vimperator/colors $DEST/.config/vimperator/
-cp -r vimperator/ohsnap.vimp $DEST/.config/vimperator/
+cp -r vimperator/gohu.vimp $DEST/.config/vimperator/
 cp vimperator/vimperatorrc $DEST/.config/vimperator/vimperatorrc
 
-
-if [ ! -d "$DEST/.local/share/" ]; then
-	mkdir "$DEST/.local/share"
-fi
-
 if [ ! -d "$DEST/.local/share/fonts" ]; then
-	mkdir "$DEST/.local/share/fonts"
+	mkdir -p "$DEST/.local/share/fonts"
 fi
 
 wget https://github.com/koemaeda/gohufont-ttf/raw/master/gohufont-11.ttf -O "$DEST/.local/share/fonts/gohufont-11.ttf"
