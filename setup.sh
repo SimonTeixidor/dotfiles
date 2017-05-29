@@ -70,8 +70,6 @@ fi
 
 wget https://github.com/koemaeda/gohufont-ttf/raw/master/gohufont-11.ttf -O "$DEST/.local/share/fonts/gohufont-11.ttf"
 
-cp scripts/stats "$DEST/bin/"
-
 mkfontdir $DEST/.local/share/fonts
 mkfontscale $DEST/.local/share/fonts
 
