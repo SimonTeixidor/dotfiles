@@ -9,8 +9,9 @@ static const Bool showsystray = True;
 #define normFg "#44B5B1"
 #define selFg "#E8DFD6"
 #define font "GohuFont:pixelsize=11"
+#define icon_font "stlarch:pixelsize=11"
 
-static const char *fonts[]            = { font };
+static const char *fonts[]            = { icon_font, font };
 static const char colors[NUMCOLORS][MAXCOLORS][8] = {
     { "#555555", normFg, bgCol },
     { "#DCDCDC", selFg, bgCol }, 
