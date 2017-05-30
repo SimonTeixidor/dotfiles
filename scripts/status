@@ -13,5 +13,5 @@ if [ "$WITH_BATTERY" = true ]; then
 	STATUS=$STATUS$battery"%"
 fi
 
-STATUS="$STATUS$(echo -e "\x02") $(date +"%I:%M")"
+STATUS="$STATUS$(echo -e "\x02") $(date +"%H:%M")"
 xsetroot -name "$STATUS"
