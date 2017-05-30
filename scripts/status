@@ -1,0 +1,17 @@
+#!/bin/bash
+
+WITH_BATTERY=true
+STATUS=""
+
+if [ "$WITH_BATTERY" = true ]; then
+	battery=$(acpi -b | cut -d"," -f2 | cut -d" " -f2 | cut -d'%' -f1)
+	if [ $battery -lt "15" ]; then
+		STATUS=$STATUS$(echo -e "\x03 ")
+	else
+		STATUS=$STATUS$(echo -e "\x02 ")
+	fi
+	STATUS=$STATUS$battery"%"
+fi
+
+STATUS="$STATUS$(echo -e "\x02") $(date +"%I:%M")"
+xsetroot -name "$STATUS"
