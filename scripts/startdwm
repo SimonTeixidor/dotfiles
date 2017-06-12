@@ -3,4 +3,5 @@ setxkbmap us
 xmodmap /home/simon/.config/X11/Xmodmap
 compton -c -b
 hsetroot -tile .local/share/wall.png
+prowler &
 ~/bin/status

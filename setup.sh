@@ -25,6 +25,11 @@ fi
 
 wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
 
+wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/"
+chmod +x "$DEST/bin/prowler"
+
+cp -r prowler "$DEST/.config"
+
 cd dwm-6.1
 make
 if [ ! -d "$DEST/bin" ]; then
