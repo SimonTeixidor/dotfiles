@@ -25,7 +25,7 @@ fi
 
 wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
 
-wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/"
+wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
 chmod +x "$DEST/bin/prowler"
 
 cp -r prowler "$DEST/.config"
