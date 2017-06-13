@@ -1,4 +1,4 @@
-plugins: discogs replaygain smartplaylist zero acousticbrainz types
+plugins: discogs replaygain smartplaylist zero acousticbrainz types fetchart copyartifacts check duplicates
 directory: ~/music
 library: ~/.beets.blb
 original_date: yes
@@ -13,12 +13,10 @@ smartplaylist:
     relative_to: ~/music
     playlist_dir: ~/playlists
     playlists:
-        - name: bn.m3u
+        - name: 'Blue Note Records.m3u'
           query: 'label:"Blue Note"'
-        - name: new.m3u
+        - name: New.m3u
           query: 'added+'
-        - name: late_night_jazz.m3u
-          query: 'genre:jazz mood_relaxed:0.8..1.0'
 
 zero:
     fields: [artist_sort,  albumartist_sort]
@@ -30,3 +28,16 @@ types:
     mood_acoustic: float
     mood_happy: float
     mood_sad: float
+
+fetchart:
+    google_key:  AIzaSyBJSJdwjvdfjJ9PJ0gAa2cssAHBWqRwN4s
+    sources: filesystem coverart itunes amazon albumart google fanarttv
+    fanarttv_key: 7ae9efc470e11c7750b5e1746776a088
+
+paths:
+    ext:log: $albumpath/$artist - $album
+    ext:cue: $albumpath/$artist - $album
+
+copyartifacts:
+    extensions: .cue .log .txt
+    print_ignored: yes
