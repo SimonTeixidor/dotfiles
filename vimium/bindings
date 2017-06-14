@@ -1,0 +1,14 @@
+unmap d
+unmap f
+unmap F
+map f goForward
+map d goBack
+unmap x
+unmap X
+map q removeTab
+map Q restoreTab
+map e LinkHints.activateMode
+map E LinkHints.activateModeToOpenInNewTab
+unmap t
+unmap O
+map t Vomnibar.activateInNewTab
