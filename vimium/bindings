@@ -10,5 +10,11 @@ map Q restoreTab
 map e LinkHints.activateMode
 map E LinkHints.activateModeToOpenInNewTab
 unmap t
-unmap O
 map t Vomnibar.activateInNewTab
+unmap O
+unmap ge
+map O Vomnibar.activateEditUrl
+unmap gE
+map T Vomnibar.activateEditUrlInNewTab
+unmap u
+map u restoreTab
