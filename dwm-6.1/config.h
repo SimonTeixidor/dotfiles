@@ -52,15 +52,15 @@ static const Layout layouts[] = {
 
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", bgCol, "-nf", normFg, "-sb",  bgCol, "-sf", selFg, NULL };
-static const char *termcmd[] = { "urxvt", NULL };
-static const char *firefoxcmd[] = { "firefox", NULL };
+static const char *termcmd[] = { "st", NULL };
+static const char *browsercmd[] = { "tabbed", "-c", "vimb", "-e", NULL };
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = firefoxcmd } },
+	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_Tab,    focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

@@ -25,6 +25,9 @@ alias irssi='irssi --home=~/.config/irssi'
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+bind '"\C-[OA": history-search-backward'
+bind '"\C-[OB": history-search-forward'
+
 HISTSIZE=
 HISTFILESIZE=
 HISTCONTROL=ignoredups:ignorespace
