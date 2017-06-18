@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", bgCol, "-nf", normFg, "-sb",  bgCol, "-sf", selFg, NULL };
 static const char *termcmd[] = { "st", NULL };
-static const char *browsercmd[] = { "tabbed", "-c", "vimb", "-e", NULL };
+static const char *browsercmd[] = { "vimb", NULL };
 
 
 static Key keys[] = {
