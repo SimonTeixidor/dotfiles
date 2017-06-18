@@ -1,5 +1,7 @@
---- dwm/dwm.c.orig	2015-11-22 13:26:16.664650238 -0700
-+++ dwm/dwm.c	2015-11-22 13:25:57.407984351 -0700
+Only in dwm-6.1-orig/: dwm-uselessgap-6.1.diff
+diff -up dwm-6.1-orig/dwm.c dwm-6.1/dwm.c
+--- dwm-6.1-orig/dwm.c	2017-06-18 12:59:02.493382237 +0200
++++ dwm-6.1/dwm.c	2017-06-18 13:01:28.490050054 +0200
 @@ -52,8 +52,8 @@
  #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
  #define LENGTH(X)               (sizeof X / sizeof X[0])
@@ -11,7 +13,7 @@
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_text(drw, 0, 0, 0, 0, (X), 0) + drw->fonts[0]->h)
  
-@@ -1293,12 +1293,36 @@ void
+@@ -1293,12 +1293,29 @@ void
  resizeclient(Client *c, int x, int y, int w, int h)
  {
  	XWindowChanges wc;
