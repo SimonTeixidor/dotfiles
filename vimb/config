@@ -1,5 +1,5 @@
 set spell-checking=true
-set download-path=dl
+set download-path=/home/simon/dl
 set home-page=start.duckduckgo.com
 set spell-checking-languages=en,se,fr
 set webgl=true
