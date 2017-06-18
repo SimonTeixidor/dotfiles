@@ -1,0 +1,24 @@
+set spell-checking=true
+set download-path=dl
+set home-page=start.duckduckgo.com
+set spell-checking-languages=en,se,fr
+set webgl=true
+nmap e ;o
+nmap E ;t
+nmap f <C-I>
+nmap d <C-O>
+nnoremap gt :sh! xdotool key --window $VIMB_XID ctrl+shift+l<CR><Esc>
+nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+h<CR><Esc>
+nmap q :q<CR>
+
+
+set hint-keys=asdfghjkl;
+
+set completion-css=color:#c5c8c6;background-color:#021b21;font:11px GohuFont;
+set completion-hover-css=color:#c5c8c6;background-color:#021b21;font:11px GohuFont;
+set completion-selected-css=color:#c5c8c6;background-color:#515151;font:11px GohuFont;
+set input-css=color:#c5c8c6;background-color:#021b21;font:11px GohuFont;
+set input-error-css=color:#f2777a;background-color:#021b21;font:11px GohuFont;
+set status-css=color:#ffcc66;background-color:#021b21;font:11px GohuFont;
+set status-ssl-css=color:#99cc99;background-color:#021b21;font:11px GohuFont;
+set status-ssl-invalid-css=color:#f2777a;background-color:#021b21;font:11px GohuFont;
