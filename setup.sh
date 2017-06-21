@@ -14,8 +14,6 @@ if [ ! -d "$DEST/.config/X11/" ]; then
 fi
 cp urxvt/Xdefaults $DEST/.config/X11/Xresources
 
-cp -r vimb $DEST/.config/
-
 if [ ! -d "$DEST/.config/ncmpcpp/" ]; then
 	mkdir "$DEST/.config/ncmpcpp/"
 fi
