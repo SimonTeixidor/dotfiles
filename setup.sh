@@ -1,5 +1,4 @@
 #!/bin/sh
-
 DEST=$1
 
 if [ "$DEST" == "" ]; then
@@ -80,6 +79,8 @@ if [ ! -d "$DEST/.config/readline" ]; then
 	mkdir "$DEST/.config/readline"
 fi
 cp misc/inputrc $DEST/.config/readline/
+
+cp mutt $DEST/.config/
 
 cp misc/theanorc $DEST/.config/
 cp misc/wall.png $DEST/.local/share/
