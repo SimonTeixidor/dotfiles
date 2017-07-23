@@ -20,6 +20,7 @@ export LESSHISTFILE=-
 export CARGO_HOME="$XDG_CACHE_HOME/cargo/"
 export RUSTUP_HOME="$XDG_CACHE_HOME/rustup/"
 export STACK_ROOT="$XDG_DATA_HOME"/stack
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 alias irssi='irssi --home=~/.config/irssi'
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
