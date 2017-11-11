@@ -2,7 +2,7 @@
 pkgname=st
 version=0.7
 patch_args="-p1"
-revision=1
+revision=2
 build_style=gnu-makefile
 make_use_env=compliant
 hostmakedepends="pkg-config"
@@ -11,8 +11,8 @@ depends="ncurses"
 short_desc="Simple terminal implementation for X"
 maintainer='Juan RP <xtraeme@voidlinux.eu>'
 license="MIT"
-homepage="http://st.suckless.org"
-distfiles="http://dl.suckless.org/${pkgname}/${pkgname}-${version}.tar.gz"
+homepage="https://st.suckless.org"
+distfiles="https://dl.suckless.org/${pkgname}/${pkgname}-${version}.tar.gz"
 checksum=f7870d906ccc988926eef2cc98950a99cc78725b685e934c422c03c1234e6000
 
 pre_build() {
