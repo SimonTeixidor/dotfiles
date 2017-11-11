@@ -2,9 +2,9 @@
 pkgname=dwm
 version=6.1
 patch_args="-p1"
-revision=1
-homepage="http://dwm.suckless.org"
-distfiles="http://dl.suckless.org/dwm/dwm-$version.tar.gz"
+revision=2
+homepage="https://dwm.suckless.org"
+distfiles="https://dl.suckless.org/dwm/dwm-$version.tar.gz"
 makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="A dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
