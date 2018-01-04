@@ -2,6 +2,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
 export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresources"
 export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
 export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
@@ -21,6 +22,7 @@ export CARGO_HOME="$XDG_CACHE_HOME/cargo/"
 export RUSTUP_HOME="$XDG_CACHE_HOME/rustup/"
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
+export GPG_TTY=$(tty)
 alias irssi='irssi --home=~/.config/irssi'
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
@@ -39,15 +41,7 @@ else
 fi
 export EDITOR='vim'
 alias ls='ls --color=auto'
-alias makelossy="flac2opus.sh /mnt/storage/musik /mnt/storage/lossy"
 alias syncmusic="rsync --delete -ruv --modify-window=36001 /mnt/storage/lossy /mnt/tmp"
-alias syncplaylist="for p in .mpd/playlists/*; do convert_playlist "$p"; done"
-
-convert_playlist () {
-	sed 's/.flac/.opus/g' "$1" | sed 's/^/\/<microSD1>\/lossy\//g' > ~/"$(basename "$1")"
-}
-	
-
 alias sudo="sudo "
 alias grep='grep --color=auto'
 dl() {
@@ -82,4 +76,4 @@ sc () {
 export -f sc
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib"
-export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/:/usr/sbin
+export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/:/usr/sbin:~/.cache/cargo/bin/:~/.cache/npm-packages/bin

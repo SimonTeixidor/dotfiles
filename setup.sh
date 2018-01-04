@@ -85,3 +85,4 @@ cp mutt $DEST/.config/
 cp misc/theanorc $DEST/.config/
 cp misc/wall.png $DEST/.local/share/
 cp misc/user-dirs.dirs $DEST/.config/
+cp -r misc/npm $DEST/.config
