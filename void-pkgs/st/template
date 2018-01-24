@@ -2,7 +2,7 @@
 pkgname=st
 version=0.7
 patch_args="-p1"
-revision=2
+revision=3
 build_style=gnu-makefile
 make_use_env=compliant
 hostmakedepends="pkg-config"
