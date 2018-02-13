@@ -50,12 +50,8 @@ if [ ! -d "$DEST/.config/dircolors" ]; then
 fi
 cp bash/dircolors $DEST/.config/dircolors/config
 
-if [ ! -d "$DEST/.config/screen" ]; then
-	mkdir -p "$DEST/.config/screen"
-fi
-cp screen/screenrc $DEST/.config/screen/screenrc
-
 cp bash/profile $DEST/.bash_profile
+cp -r tmux $DEST/.config/
 
 if [ ! -d "$DEST/.config/vimperator" ]; then
 	mkdir -p "$DEST/.config/vimperator/"

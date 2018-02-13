@@ -1,7 +1,0 @@
-attrcolor b ".I"
-defbce "on"
-startup_message off
-shell -$SHELL
-term screen-256color
-hardstatus             alwayslastline                                                                                                     
-hardstatus string '%{= dw}%=%-w%{= dW}%t%{= dw}%+w%='
