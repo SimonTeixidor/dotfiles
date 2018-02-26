@@ -5,7 +5,7 @@ patch_args="-p1"
 revision=2
 homepage="https://dwm.suckless.org"
 distfiles="https://dl.suckless.org/dwm/dwm-$version.tar.gz"
-makedepends="libXinerama-devel libXft-devel freetype-devel"
+makedepends="libXinerama-devel libXft-devel freetype-devel libmpdclient-devel"
 short_desc="A dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="MIT"
@@ -15,7 +15,7 @@ do_build() {
 	cp ${FILESDIR}/config.h config.h
 	sed -i "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" config.mk
 	sed -i "/LDFLAGS/s|\-s|$LDFLAGS|g" config.mk
-	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXinerama -lXft -lfontconfig"
+	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXinerama -lXft -lfontconfig -lmpdclient"
 }
 
 do_install() {
