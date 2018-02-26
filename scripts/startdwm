@@ -4,4 +4,5 @@ xmodmap /home/simon/.config/X11/Xmodmap
 compton -c -b
 hsetroot -tile .local/share/wall.png
 prowler &
+redshift -l 47:8
 ~/bin/status
