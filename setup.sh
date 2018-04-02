@@ -42,6 +42,7 @@ cp misc/xinitrc $DEST/.xinitrc
 cp scripts/startdwm $DEST/bin/
 cp scripts/status $DEST/bin/
 cp scripts/search-order-by-deps.sh $DEST/bin/
+cp scripts/adblock-update.sh $DEST/bin/
 
 cp vim/vimrc $DEST/.config/vim/
 cp vim/xdg.vim $DEST/.config/vim/
