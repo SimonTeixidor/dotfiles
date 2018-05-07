@@ -29,14 +29,6 @@ chmod +x "$DEST/bin/prowler"
 
 cp -r prowler "$DEST/.config"
 
-cd dwm-6.1
-make
-if [ ! -d "$DEST/bin" ]; then
-	mkdir "$DEST/bin"
-fi
-cp dwm $DEST/bin
-cd ..
-
 cp misc/xinitrc $DEST/.xinitrc
 
 cp scripts/startdwm $DEST/bin/
@@ -78,9 +70,6 @@ if [ ! -d "$DEST/.config/readline" ]; then
 fi
 cp misc/inputrc $DEST/.config/readline/
 
-cp mutt $DEST/.config/
-
-cp misc/theanorc $DEST/.config/
 cp misc/wall.png $DEST/.local/share/
 cp misc/user-dirs.dirs $DEST/.config/
 cp -r misc/npm $DEST/.config
