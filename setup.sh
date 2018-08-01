@@ -18,10 +18,6 @@ if [ ! -d "$DEST/.config/ncmpcpp/" ]; then
 fi
 cp -r ncmpcpp $DEST/.config/ncmpcpp
 
-if [ ! -d "$DEST/.config/vim/colors" ]; then
-	mkdir -p "$DEST/.config/vim/colors"
-fi
-
 wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
 
 wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
@@ -36,6 +32,9 @@ cp scripts/status $DEST/bin/
 cp scripts/search-order-by-deps.sh $DEST/bin/
 cp scripts/adblock-update.sh $DEST/bin/
 
+if [ ! -d "$DEST/.config/vim" ]; then
+	mkdir -p "$DEST/.config/vim/"
+fi
 cp vim/vimrc $DEST/.config/vim/
 cp vim/xdg.vim $DEST/.config/vim/
 
