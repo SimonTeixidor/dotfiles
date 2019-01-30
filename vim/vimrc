@@ -10,25 +10,21 @@ set rtp+=$MYVIMDIR/bundle/Vundle.vim
 call vundle#begin("~/.config/vim/bundle")
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
-Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
-set nocompatible
+
 syntax on
 set number
 set nobackup
 set nowritebackup
 set noundofile
+set mouse=r
 
-augroup WrapLineInTeXFile
-    autocmd!
-    autocmd FileType tex setlocal tw=80
-augroup END
-au BufRead,BufNewFile *.md setlocal textwidth=80
-
+set viewdir=$MYVIMDIR/view
 
 colorscheme delek
 let g:rustfmt_autosave = 1
-let g:rustfmt_fail_silently = 1
 let g:ycm_rust_src_path = '/home/simon/.multirust/src'
+
 source $MYVIMDIR/xdg.vim
+autocmd FileType sql :setlocal sw=2 ts=2 sts=2
