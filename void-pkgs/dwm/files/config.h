@@ -13,11 +13,13 @@ static const Bool showsystray = True;
 #define icon_font "stlarch:pixelsize=11"
 
 static const char *fonts[]            = { icon_font, font };
-static const char colors[NUMCOLORS][MAXCOLORS][8] = {
-    { "#555555", normFg, bgCol },
-    { "#DCDCDC", selFg, bgCol }, 
-    { "#AF8700", "#FF0000", bgCol },
-    { "#000000", "#7c9fa6", bgCol }
+
+static const char *colors[][3]      = {
+	/*		   fg         bg          border   */
+	[SchemeNorm] =	 { normFg, bgCol,  "#555555" },
+	[SchemeSel]  =	 { selFg, bgCol,   "#DCDCDC" },
+	[SchemeWarn] =	 { "#FF0000", bgCol, "#AF8700" },
+	[SchemeUrgent] =	 { "#FF0000", bgCol, "#AF8700" },
 };
 
 static Bool resizehints = False;
