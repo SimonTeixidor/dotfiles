@@ -72,3 +72,4 @@ cp misc/inputrc $DEST/.config/readline/
 cp misc/wall.png $DEST/.local/share/
 cp misc/user-dirs.dirs $DEST/.config/
 cp -r misc/npm $DEST/.config
+cp -r gtk-3.0 $DEST/.config/
