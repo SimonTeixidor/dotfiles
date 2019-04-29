@@ -1,4 +1,4 @@
-plugins: discogs replaygain smartplaylist zero acousticbrainz types fetchart copyartifacts check duplicates
+plugins: discogs replaygain smartplaylist fetchart mbsync importfeeds lastgenre inline
 directory: ~/music
 library: ~/.beets.blb
 original_date: yes
@@ -6,38 +6,35 @@ replaygain:
     backend: bs1770gain
     overwrite: yes
 
-paths:
-    default: $albumartist/$album%aunique{}/$track $title
 
 smartplaylist:
     relative_to: ~/music
     playlist_dir: ~/playlists
     playlists:
-        - name: 'Blue Note Records.m3u'
-          query: 'label:"Blue Note"'
-        - name: New.m3u
-          query: 'added+'
-
-zero:
-    fields: [artist_sort,  albumartist_sort]
-    update_database: true
-
-types:
-    mood_relaxed: float
-    bpm: int
-    mood_acoustic: float
-    mood_happy: float
-    mood_sad: float
+      - name: 'Blue Note Records: Golden Years.m3u'
+        query: 'label:"Blue Note" year:1950.1966'
 
 fetchart:
-    google_key:  AIzaSyBJSJdwjvdfjJ9PJ0gAa2cssAHBWqRwN4s
-    sources: filesystem coverart itunes amazon albumart google fanarttv
-    fanarttv_key: 7ae9efc470e11c7750b5e1746776a088
+    sources: filesystem coverart itunes amazon albumart fanarttv wikipedia google
+
+item_fields:
+    initial: albumartist[0].upper() + u'.'
+    disc_and_track: u'%02i.%02i' % (disc, track) if
+                    disctotal > 1 else u'%02i' % (track)
 
 paths:
+    default: $albumartist/$album/$disc_and_track $title
     ext:log: $albumpath/$artist - $album
     ext:cue: $albumpath/$artist - $album
 
-copyartifacts:
-    extensions: .cue .log .txt
-    print_ignored: yes
+check:
+    import: no
+    threads: 4
+
+importfeeds:
+    dir: ~/playlists
+    formats: m3u
+    relative_to: ~/music/    
+
+lastgenre:
+    count: 2
