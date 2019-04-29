@@ -41,7 +41,6 @@ else
 fi
 export EDITOR='vim'
 alias ls='ls --color=auto'
-alias syncmusic="rsync --delete -ruv --modify-window=36001 /mnt/storage/lossy /mnt/tmp"
 alias sudo="sudo "
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias grep='grep --color=auto'
