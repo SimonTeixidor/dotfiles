@@ -12,7 +12,7 @@ smartplaylist:
     playlist_dir: ~/playlists
     playlists:
       - name: 'Blue Note Records: Golden Years.m3u'
-        query: 'label:"Blue Note" year:1950.1966'
+        query: 'label:"Blue Note" year:1950..1966'
 
 fetchart:
     sources: filesystem coverart itunes amazon albumart fanarttv wikipedia google
