@@ -1,4 +1,4 @@
-plugins: discogs replaygain smartplaylist fetchart mbsync importfeeds lastgenre inline
+plugins: discogs replaygain smartplaylist mbsync importfeeds lastgenre inline zero missing
 directory: ~/music
 library: ~/.beets.blb
 original_date: yes
@@ -13,9 +13,6 @@ smartplaylist:
     playlists:
       - name: 'Blue Note Records: Golden Years.m3u'
         query: 'label:"Blue Note" year:1950..1966'
-
-fetchart:
-    sources: filesystem coverart itunes amazon albumart fanarttv wikipedia google
 
 item_fields:
     initial: albumartist[0].upper() + u'.'
@@ -38,3 +35,6 @@ importfeeds:
 
 lastgenre:
     count: 2
+
+zero:
+    fields: images
