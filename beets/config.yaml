@@ -1,4 +1,4 @@
-plugins: discogs replaygain smartplaylist mbsync importfeeds lastgenre inline zero missing
+plugins: smartplaylist replaygain importfeeds lastgenre inline zero missing extrafiles fetchart badfiles scrub
 directory: ~/music
 library: ~/.beets.blb
 original_date: yes
@@ -15,12 +15,12 @@ smartplaylist:
         query: 'label:"Blue Note" year:1950..1966'
 
 item_fields:
-    initial: albumartist[0].upper() + u'.'
     disc_and_track: u'%02i.%02i' % (disc, track) if
                     disctotal > 1 else u'%02i' % (track)
+    path_artist: albumartist_sort or albumartist
 
 paths:
-    default: $albumartist/$album/$disc_and_track $title
+    default: $path_artist/$album/$disc_and_track $title
     ext:log: $albumpath/$artist - $album
     ext:cue: $albumpath/$artist - $album
 
@@ -38,3 +38,18 @@ lastgenre:
 
 zero:
     fields: images
+
+extrafiles:
+    patterns:
+      all: 
+        - '*.cue'
+        - '*.log'
+        - '*.txt'
+        - '*.jpg'
+
+fetchart:
+    sources: filesystem
+
+badfiles:
+    commands:
+        flac: flac --test --warnings-as-errors --silent
