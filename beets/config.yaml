@@ -1,7 +1,9 @@
-plugins: smartplaylist replaygain importfeeds lastgenre inline zero missing extrafiles fetchart badfiles scrub
+plugins: smartplaylist importfeeds lastgenre inline zero missing extrafiles fetchart badfiles scrub hook
 directory: ~/music
-library: ~/.beets.blb
+library: ~/music/beets.db
+
 original_date: yes
+
 replaygain:
     backend: bs1770gain
     overwrite: yes
@@ -31,7 +33,7 @@ check:
 importfeeds:
     dir: ~/playlists
     formats: m3u
-    relative_to: ~/music/    
+    relative_to: ~/music/
 
 lastgenre:
     count: 2
@@ -41,7 +43,7 @@ zero:
 
 extrafiles:
     patterns:
-      all: 
+      all:
         - '*.cue'
         - '*.log'
         - '*.txt'
@@ -52,4 +54,9 @@ fetchart:
 
 badfiles:
     commands:
-        flac: flac --test --warnings-as-errors --silent
+        flac: flac --test --silent
+
+hook:
+    hooks:
+        - event: after_write
+          command: flac-tag-split-hack {item.path}
