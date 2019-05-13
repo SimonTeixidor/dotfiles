@@ -6,19 +6,10 @@ if [ "$DEST" == "" ]; then
 	exit -1
 fi
 
-cp mpd/mpdconf $DEST/.mpdconf
-
 if [ ! -d "$DEST/.config/X11/" ]; then
 	mkdir "$DEST/.config/X11/"
 fi
 cp urxvt/Xdefaults $DEST/.config/X11/Xresources
-
-if [ ! -d "$DEST/.config/ncmpcpp/" ]; then
-	mkdir "$DEST/.config/ncmpcpp/"
-fi
-cp -r ncmpcpp $DEST/.config/ncmpcpp
-
-wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
 
 wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
 chmod +x "$DEST/bin/prowler"
@@ -35,6 +26,8 @@ cp scripts/adblock-update.sh $DEST/bin/
 if [ ! -d "$DEST/.config/vim" ]; then
 	mkdir -p "$DEST/.config/vim/"
 fi
+wget https://raw.githubusercontent.com/xero/sourcerer/master/sourcerer.vim -O $DEST/.config/vim/colors/sourcerer.vim
+
 cp vim/vimrc $DEST/.config/vim/
 cp vim/xdg.vim $DEST/.config/vim/
 
@@ -45,13 +38,6 @@ cp bash/dircolors $DEST/.config/dircolors/config
 
 cp bash/profile $DEST/.bash_profile
 cp -r tmux $DEST/.config/
-
-if [ ! -d "$DEST/.config/vimperator" ]; then
-	mkdir -p "$DEST/.config/vimperator/"
-fi
-cp -r vimperator/colors $DEST/.config/vimperator/
-cp -r vimperator/gohu.vimp $DEST/.config/vimperator/
-cp vimperator/vimperatorrc $DEST/.config/vimperator/vimperatorrc
 
 if [ ! -d "$DEST/.local/share/fonts" ]; then
 	mkdir -p "$DEST/.local/share/fonts"
