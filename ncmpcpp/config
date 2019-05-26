@@ -1,9 +1,0 @@
-mpd_host="192.168.0.16"
-media_library_primary_tag = album_artist
-lyrics_directory = "~/.local/share/lyrics"
-ncmpcpp_directory = "~/.config/ncmpcpp"
-
-# UI
-header_visibility = "no"
-titles_visibility = "no"
-statusbar_visibility = "no"
