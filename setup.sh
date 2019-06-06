@@ -9,7 +9,6 @@ fi
 if [ ! -d "$DEST/.config/X11/" ]; then
 	mkdir "$DEST/.config/X11/"
 fi
-cp urxvt/Xdefaults $DEST/.config/X11/Xresources
 
 wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
 chmod +x "$DEST/bin/prowler"
