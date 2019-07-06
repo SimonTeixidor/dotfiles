@@ -1,2 +1,2 @@
 exec ~/bin/startdwm & 
-exec ~/bin/dwm
+exec dwm
