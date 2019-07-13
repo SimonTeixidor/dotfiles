@@ -1,7 +1,7 @@
 setxkbmap -option terminate:ctrl_alt_bksp 
 setxkbmap us
 xmodmap /home/simon/.config/X11/Xmodmap
-compton -c -b
+compton --backend xrender -c -b
 hsetroot -tile .local/share/wall.png
 prowler &
 redshift -l 47:8
