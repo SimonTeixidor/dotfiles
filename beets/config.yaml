@@ -1,6 +1,7 @@
-plugins: smartplaylist importfeeds lastgenre inline zero missing extrafiles fetchart badfiles scrub hook
-directory: ~/music
-library: ~/music/beets.db
+plugins: importfeeds lastgenre inline zero missing extrafiles fetchart badfiles info discogs_extradata tagsplit
+
+directory: ~/music_import
+library: ~/music_import/beets.db
 
 original_date: yes
 
@@ -8,13 +9,6 @@ replaygain:
     backend: bs1770gain
     overwrite: yes
 
-
-smartplaylist:
-    relative_to: ~/music
-    playlist_dir: ~/playlists
-    playlists:
-      - name: 'Blue Note Records: Golden Years.m3u'
-        query: 'label:"Blue Note" year:1950..1966'
 
 item_fields:
     disc_and_track: u'%02i.%02i' % (disc, track) if
@@ -30,13 +24,9 @@ check:
     import: no
     threads: 4
 
-importfeeds:
-    dir: ~/playlists
-    formats: m3u
-    relative_to: ~/music/
-
 lastgenre:
-    count: 2
+    count: 3
+    separator: '|'
 
 zero:
     fields: images
@@ -56,7 +46,13 @@ badfiles:
     commands:
         flac: flac --test --silent
 
-hook:
-    hooks:
-        - event: after_write
-          command: flac-tag-split-hack {item.path}
+tagsplit:
+    separator: '|'
+    fields:
+        - genre
+        - label
+        - performer
+
+discogs_extradata:
+    separator: '|'
+    token: ''
