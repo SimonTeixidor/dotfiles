@@ -84,7 +84,7 @@ searchwin.geometry.h 150
 searchwin.geometry.w 450
 searchwin.geometry.x 0
 searchwin.geometry.y 12
-shellexec_config_wip [{"command": "st better-art.sh %b %a %D", "title": "Fetch Better Artwork", "name": "better_art", "flags": ["local", "single"]}, {"command": "bash -c \"cd %D && st\"", "title": "Open Directory", "name": "open_dir_in_terminal", "flags": ["local", "single"]}]
+shellexec_config_wip [{"command": "st better-art.sh %b %a %D", "title": "Fetch Better Artwork", "name": "better_art", "flags": ["local", "single"]}, {"command": "bash -c \"cd %D && st\"", "title": "Open Directory", "name": "open_dir_in_terminal", "flags": ["local", "single"]}, {"command": "firefox \"https://www.google.com/search?q=site:discogs.com %b %a\"", "title": "Lookup Album On Discogs", "name": "Lookup Album On Discogs", "flags": ["local", "single"]}]
 streamer.samplerate 44100
 streamer.samplerate_mult_44 44100
 streamer.samplerate_mult_48 48000
