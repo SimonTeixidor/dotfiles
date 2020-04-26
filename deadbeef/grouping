@@ -1,0 +1,9 @@
+$if(
+	$and(%ensemble%,%conductor%),
+	%ensemble% under %conductor%,
+	$if3(%performer%,%album artist%)
+) - $ifequal([%rating%], 5,★★★★★,)$ifequal([%rating%], 4,★★★★☆,)$ifequal([%rating%], 3,★★★☆☆,)$ifequal([%rating%], 2,★★☆☆☆,)$ifequal([%rating%], 1,★☆☆☆☆,)$ifequal([%rating%], 0,☆☆☆☆☆,)
+
+|||
+
+$if($and(%composer%,%work%),%composer%: %work%,%album%)
