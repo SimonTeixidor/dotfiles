@@ -2,8 +2,8 @@ $if(
 	$and($meta(ensemble),$meta(conductor)),
 	$meta(ensemble) under $meta(conductor),
 	$if3($meta(performer),%album artist%)
-) - $ifequal([%rating%], 5,★★★★★,)$ifequal([%rating%], 4,★★★★☆,)$ifequal([%rating%], 3,★★★☆☆,)$ifequal([%rating%], 2,★★☆☆☆,)$ifequal([%rating%], 1,★☆☆☆☆,)$ifequal([%rating%], 0,☆☆☆☆☆,)
+)
 
 |||
 
-$if($and($meta(composer),$meta(work)),$meta(composer): $meta(work),%album%)
+$if($and($meta(composer),$meta(work)),$meta(composer): $meta(work),%album%) - $ifequal([%rating%], 5,★★★★★,)$ifequal([%rating%], 4,★★★★☆,)$ifequal([%rating%], 3,★★★☆☆,)$ifequal([%rating%], 2,★★☆☆☆,)$ifequal([%rating%], 1,★☆☆☆☆,)$ifequal([%rating%], 0,☆☆☆☆☆,)
