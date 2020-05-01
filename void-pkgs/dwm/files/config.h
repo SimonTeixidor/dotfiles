@@ -1,3 +1,5 @@
+#include "mpdcontrol.c"
+
 /* See LICENSE file for copyright and license details. */
 
 static const unsigned int systrayspacing = 2; /* systray spacing */
@@ -56,7 +58,6 @@ static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", bgCol, "-nf", normFg, "-sb",  bgCol, "-sf", selFg, NULL };
 static const char *termcmd[] = { "st", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
-static const char *pausecmd[] = { "deadbeef", "--toggle-pause", NULL };
 
 
 static Key keys[] = {
@@ -64,7 +65,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_Escape, spawn,          {.v = pausecmd} },
+	{ MODKEY,                       XK_F1,     mpdchange,      {.i = -1} },
+	{ MODKEY,                       XK_F2,     mpdchange,      {.i = +1} },
+	{ MODKEY,                       XK_Escape, mpdcontrol,     {0} },
 	{ MODKEY,                       XK_Tab,    focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,   {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
