@@ -8,7 +8,7 @@ static const Bool showsystray = True;
 #define bgCol "#021B21"
 #define normFg "#44B5B1"
 #define selFg "#E8DFD6"
-#define font "GohuFont:pixelsize=11"
+#define font "Terminus:pixelsize=11"
 #define icon_font "stlarch:pixelsize=11"
 
 static const char *fonts[]            = { icon_font, font };
