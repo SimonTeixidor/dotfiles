@@ -1,0 +1,18 @@
+host = localhost
+
+color background = none
+color title = white/none
+color title-bold = white/none
+color line = none/none
+
+color list = none/none
+color list-bold = 2/none
+
+color browser-directory = none/none
+
+color status-state = white/none
+color status-song = white/none
+color status-time = white/none
+
+hide-cursor = 3
+welcome-screen-list = no
