@@ -1,8 +1,11 @@
-setxkbmap -option terminate:ctrl_alt_bksp 
+setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
 xmodmap /home/simon/.config/X11/Xmodmap
-compton --backend xrender -c -b
-hsetroot -tile .local/share/wall.png
+compton -c -b &
+hsetroot -tile .local/share/wall.png &
 prowler &
-redshift -l 47:8
-~/bin/status
+redshift -l 47:8 &
+$(sleep 1; ~/bin/status) &
+while true; do
+	dwm
+done
