@@ -6,10 +6,6 @@ if [ "$DEST" == "" ]; then
 	exit -1
 fi
 
-if [ ! -d "$DEST/.config/X11/" ]; then
-	mkdir "$DEST/.config/X11/"
-fi
-
 wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
 chmod +x "$DEST/bin/prowler"
 
@@ -45,7 +41,7 @@ fi
 mkfontdir $DEST/.local/share/fonts
 mkfontscale $DEST/.local/share/fonts
 
-cp xmodmap/Xmodmap $DEST/.config/X11/Xmodmap
+cp -r X11 $DEST/.config
 
 if [ ! -d "$DEST/.config/readline" ]; then
 	mkdir "$DEST/.config/readline"
