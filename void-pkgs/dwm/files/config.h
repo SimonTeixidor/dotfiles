@@ -7,9 +7,9 @@ static const Bool showsystray = True;
 
 #define NUMCOLORS 4
 
-#define bgCol "#021B21"
-#define normFg "#44B5B1"
-#define selFg "#E8DFD6"
+#define bgCol "#282a36"
+#define normFg "#bbbbbb"
+#define selFg "#f8f8f2"
 #define font "Terminus:pixelsize=11"
 #define icon_font "stlarch:pixelsize=11"
 
