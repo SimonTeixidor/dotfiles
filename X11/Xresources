@@ -8,8 +8,7 @@ Xft.rgba: rgb
 Sxiv.background: #282a36
 Sxiv.foreground: #f8f8f2
 
-XTerm.termName: xterm-256color
-*.faceName: Terminus:size=8:antialias=false
+*.font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
 *.foreground: #F8F8F2
 *.background: #282A36
 *.color0:     #000000
