@@ -9,7 +9,7 @@ Sxiv.background: #282a36
 Sxiv.foreground: #f8f8f2
 
 XTerm.termName: xterm-256color
-*.vt100.faceName: Terminus:size=8:antialias=false
+*.faceName: Terminus:size=8:antialias=false
 *.foreground: #F8F8F2
 *.background: #282A36
 *.color0:     #000000
