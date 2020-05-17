@@ -5,12 +5,12 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Sxiv.background: #282a36
-Sxiv.foreground: #f8f8f2
+Sxiv.foreground: #282a36
+Sxiv.background: #f8f8f2
 
 *.font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
-*.foreground: #F8F8F2
-*.background: #282A36
+*vt100.foreground: #F8F8F2
+*vt100.background: #282A36
 *.color0:     #000000
 *.color8:     #4D4D4D
 *.color1:     #FF5555
