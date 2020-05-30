@@ -9,6 +9,7 @@ Sxiv.foreground: #282a36
 Sxiv.background: #f8f8f2
 
 *.font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*.boldFont: -*-terminus-medium-r-bold-*-12-*-*-*-*-*-iso10646-*
 *vt100.foreground: #F8F8F2
 *vt100.background: #282A36
 *.color0:     #000000
