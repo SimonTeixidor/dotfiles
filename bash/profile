@@ -1,29 +1,17 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
-
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
 export XENVIRONMENT="$XDG_CONFIG_HOME/X11/Xresources"
-export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME/vimperator"
-export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
-export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export GNUPGHOME=${XDG_CONFIG_HOME}/gnupg
-export THEANORC=${XDG_CONFIG_HOME}/theanorc
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
-export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 export LESSHISTFILE=-
 export CARGO_HOME="$XDG_CACHE_HOME/cargo/"
 export RUSTUP_HOME="$XDG_CACHE_HOME/rustup/"
-export STACK_ROOT="$XDG_DATA_HOME"/stack
-export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
-export GPG_TTY=$(tty)
-alias irssi='irssi --home=~/.config/irssi'
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 
 eval `dircolors $XDG_CONFIG_HOME/dircolors/config`
 bind '"\e[A": history-search-backward'
@@ -41,40 +29,8 @@ else
 fi
 export EDITOR='vim'
 alias ls='ls --color=auto'
-alias sudo="sudo "
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias grep='grep --color=auto'
-dl() {
-	scp "$*" 192.168.0.10:/mnt/disk/torrents/
-}
 
-extract () {
-   if [ -f $1 ] ; then
-       case $1 in
-           *.tar.bz2)   tar xvjf $1 && cd $(echo $1 | sed 's/.tar.bz2//')    ;;
-           *.tar.gz)    tar xvzf $1 && cd $(echo $1 | sed 's/.tar.gz//')    ;;
-           *.bz2)       bunzip2 $1 && cd $(echo $1 | sed 's/.bz2//')    ;;
-           *.rar)       unrar x $1 && cd $(echo $1 | sed 's/.rar//')    ;;
-           *.gz)        gunzip $1 && cd $(echo $1 | sed 's/.gz//')    ;;
-           *.tar)       tar xvf $1 && cd $(echo $1 | sed 's/.tar//')    ;;
-           *.tbz2)      tar xvjf $1 && cd $(echo $1 | sed 's/.tbz2//')    ;;
-           *.tgz)       tar xvzf $1 && cd $(echo $1 | sed 's/.tgz//')    ;;
-           *.zip)       unzip $1 && cd $(echo $1 | sed 's/.zip//')    ;;
-           *.Z)         uncompress $1 && cd $(echo $1 | sed 's/.Z//')    ;;
-           *.7z)        7z x $1 && cd $(echo $1 | sed 's/.7z//')    ;;
-           *)           echo "don't know how to extract '$1'..." ;;
-       esac
-   else
-       echo "'$1' is not a valid file!"
-   fi
- }
-
-sc () {
-	echo $@ | socat - UNIX-CONNECT:/tmp/spotifyd 2>/dev/null
-}
-
-export -f sc
-
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/lib"
-export PATH=$PATH:~/bin:/sbin:/usr/local/haskell/ghc-7.8.3-x86_64/bin/:/usr/sbin:~/.cache/cargo/bin/:~/.cache/npm-packages/bin
+export PATH=$PATH:~/bin:~/.cache/cargo/bin/
 source /usr/share/bash-completion/completions/pass
