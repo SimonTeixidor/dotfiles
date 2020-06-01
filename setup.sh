@@ -46,3 +46,4 @@ cp -r gtk-3.0 $DEST/.config/
 cp -r deadbeef $DEST/.config/
 cp -r gnupg $DEST/.config/
 cp -r ncmpc $DEST/.config/
+cp -r python $DEST/.config/
