@@ -8,8 +8,8 @@ static const Bool showsystray = True;
 #define NUMCOLORS 4
 
 #define bgCol "#282a36"
-#define normFg "#bbbbbb"
-#define selFg "#f8f8f2"
+#define normFg "#BBBBBB"
+#define selFg "#FFFFFF"
 #define font "Terminus:pixelsize=11"
 #define icon_font "stlarch:pixelsize=11"
 
@@ -17,10 +17,13 @@ static const char *fonts[]            = { icon_font, font };
 
 static const char *colors[][3]      = {
 	/*		   fg         bg          border   */
-	[SchemeNorm] =	 { normFg, bgCol,  "#555555" },
-	[SchemeSel]  =	 { selFg, bgCol,   "#DCDCDC" },
-	[SchemeWarn] =	 { "#FF0000", bgCol, "#AF8700" },
-	[SchemeUrgent] =	 { "#FF0000", bgCol, "#AF8700" },
+	[SchemeNorm] = { normFg, bgCol,  "#555555" },
+	[SchemeSel]  = { selFg, bgCol,   "#DCDCDC" },
+	[SchemeStatus] = { selFg, bgCol, "#AF8700" },
+	[SchemeTagsSel]  = { "#bd93f9", bgCol, "#AF8700" },
+	[SchemeTagsNorm]  = { normFg, bgCol, "#AF8700" },
+	[SchemeInfoSel]  = { selFg, bgCol, "#AF8700" },
+	[SchemeInfoNorm]  = { normFg, bgCol, "#AF8700" },
 };
 
 static Bool resizehints = False;
@@ -29,10 +32,14 @@ static const unsigned int gappx = 10; // Gap pixel between windows
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
+static const int vertpad            = 0;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
+static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 8;        /* vertical padding for statusbar */
 
 
 /* tagging */
-static const char *tags[] = { "web", "editor", "music", "other" };
+static const char *tags[] = { "●", "●", "●", "●" };
 
 static const Rule rules[0];
 
@@ -42,9 +49,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",      tile },    /* first entry is default */
 };
 
 /* key definitions */
