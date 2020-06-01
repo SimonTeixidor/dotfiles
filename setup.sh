@@ -29,7 +29,8 @@ if [ ! -d "$DEST/.config/dircolors" ]; then
 fi
 cp bash/dircolors $DEST/.config/dircolors/config
 
-cp bash/profile $DEST/.bash_profile
+cp bash/profile $DEST/.bashrc
+echo ". ~/.bashrc" > $DEST/.bash_profile
 cp -r tmux $DEST/.config/
 
 cp -r X11 $DEST/.config
