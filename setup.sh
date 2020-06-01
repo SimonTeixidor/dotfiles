@@ -48,7 +48,7 @@ if [ ! -d "$DEST/.config/readline" ]; then
 fi
 cp misc/inputrc $DEST/.config/readline/
 
-cp misc/wall.png $DEST/.local/share/
+wget https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png -O $DEST/.local/share/wall.png
 cp misc/user-dirs.dirs $DEST/.config/
 cp -r misc/npm $DEST/.config
 cp -r gtk-3.0 $DEST/.config/
