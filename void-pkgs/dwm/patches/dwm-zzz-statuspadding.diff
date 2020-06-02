@@ -44,7 +44,17 @@ diff -up dwm-6.2-orig/dwm.c dwm-6.2/dwm.c
  	}
  
  	for (c = m->clients; c; c = c->next) {
-@@ -1563,8 +1563,8 @@ setup(void)
+@@ -726,9 +726,6 @@ drawbar(Monitor *m)
+ 				urg & 1 << i);
+ 		x += w;
+ 	}
+-	w = blw = TEXTW(m->ltsymbol);
+-	drw_setscheme(drw, scheme[SchemeTagsNorm]);
+-	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
+ 
+ 	if ((w = m->ww - sw - x) > bh) {
+ 		if (m->sel) {
+@@ -1563,8 +1560,8 @@ setup(void)
  	drw = drw_create(dpy, screen, root, sw, sh);
  	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
  		die("no fonts could be loaded.");
