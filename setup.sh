@@ -16,6 +16,7 @@ cp misc/xinitrc $DEST/.xinitrc
 cp scripts/startdwm $DEST/bin/
 cp scripts/status $DEST/bin/
 cp scripts/search-order-by-deps.sh $DEST/bin/
+cp scripts/mpdinfo.sh $DEST/bin/
 
 if [ ! -d "$DEST/.config/vim" ]; then
 	mkdir -p "$DEST/.config/vim/"
