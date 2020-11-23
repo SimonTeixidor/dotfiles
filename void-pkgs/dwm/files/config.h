@@ -7,23 +7,24 @@ static const Bool showsystray = True;
 
 #define NUMCOLORS 4
 
-#define bgCol "#282a36"
-#define normFg "#BBBBBB"
-#define selFg "#FFFFFF"
+#define normBg "#282a36"
+#define normFg "#6272a4"
+#define selFg "#f8f8f2"
+#define selBg "#bd93f9"
 #define font "Terminus:pixelsize=11"
 #define icon_font "stlarch:pixelsize=11"
 
-static const char *fonts[]            = { icon_font, font };
+static const char *fonts[]            = { font, icon_font };
 
 static const char *colors[][3]      = {
 	/*		   fg         bg          border   */
-	[SchemeNorm] = { normFg, bgCol,  "#555555" },
-	[SchemeSel]  = { selFg, bgCol,   "#DCDCDC" },
-	[SchemeStatus] = { selFg, bgCol, "#AF8700" },
-	[SchemeTagsSel]  = { "#bd93f9", bgCol, "#AF8700" },
-	[SchemeTagsNorm]  = { normFg, bgCol, "#AF8700" },
-	[SchemeInfoSel]  = { selFg, bgCol, "#AF8700" },
-	[SchemeInfoNorm]  = { normFg, bgCol, "#AF8700" },
+	[SchemeNorm] = { selFg, normBg,  normFg },
+	[SchemeSel]  = { selFg, normBg,   selFg },
+	[SchemeStatus] = { selFg, normBg, normFg },
+	[SchemeTagsSel]  = { selFg, selBg, normFg },
+	[SchemeTagsNorm]  = { normFg, normBg, normFg },
+	[SchemeInfoSel]  = { selFg, normBg, normFg },
+	[SchemeInfoNorm]  = { selFg, normBg, normFg },
 };
 
 static Bool resizehints = False;
@@ -39,7 +40,7 @@ static const int vertpadbar         = 8;        /* vertical padding for statusba
 
 
 /* tagging */
-static const char *tags[] = { "●", "●", "●", "●" };
+static const char *tags[] = { "1", "2", "3", "4" };
 
 static const Rule rules[0];
 
@@ -49,7 +50,8 @@ static const int nmaster     = 1;    /* number of clients in master area */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",      tile },    /* first entry is default */
+	{ "[]=",      tile },    /* first entry is default */
+	{ "[M]",      monocle }
 };
 
 /* key definitions */
@@ -60,7 +62,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} },
 
 static char dmenumon[2] = "0";
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", bgCol, "-nf", normFg, "-sb",  bgCol, "-sf", selFg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normBg, "-nf", selFg, "-sb",  selBg, "-sf", selFg, NULL };
 static const char *termcmd[] = { "st", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 
