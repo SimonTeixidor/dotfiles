@@ -1,0 +1,2 @@
+* * * * * /home/simon/bin/status
+*/5 * * * * /bin/bash -c "/home/simon/bin/imap_count.py > /tmp/inbox_count"
