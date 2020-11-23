@@ -1,17 +1,27 @@
 #!/bin/bash
-
-WITH_BATTERY=true
+DISPLAY=:0
+WITH_EMAIL=true
+WITH_BATTERY=false
 STATUS=""
+
+if [ "$WITH_EMAIL" = true ]; then
+	EMAIL_ICON=""
+	EMAILS=$(cat /tmp/inbox_count)
+	if [ "$EMAILS" != 0 ]; then
+		EMAIL_LINE=$(echo -ne "\x04 $EMAIL_ICON $EMAILS \x01 ")
+		STATUS="$STATUS$EMAIL_LINE"
+	fi
+fi
 
 if [ "$WITH_BATTERY" = true ]; then
 	battery=$(acpi -b | cut -d"," -f2 | cut -d" " -f2 | cut -d'%' -f1)
 	if [ $battery -lt "15" ]; then
-		STATUS=$STATUS$(echo -e "\x03 ")
+		STATUS="$STATUS$(echo -e "\x03 ")"
 	else
-		STATUS=$STATUS$(echo -e "\x02 ")
+		STATUS="$STATUS$(echo -e "\x02 ")"
 	fi
-	STATUS=$STATUS$battery"%"
+	STATUS="$STATUS$battery%"
 fi
 
-STATUS="$STATUS$(echo -e "\x02") $(date +"%H:%M")"
+STATUS="$STATUS $(date +"%H:%M")"
 xsetroot -name "$STATUS"
