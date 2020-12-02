@@ -1,14 +1,18 @@
 #!/bin/bash
-DISPLAY=:0
 WITH_EMAIL=true
 WITH_BATTERY=false
 STATUS=""
 
 if [ "$WITH_EMAIL" = true ]; then
 	EMAIL_ICON=""
-	EMAILS=$(cat /tmp/inbox_count)
-	if [ "$EMAILS" != 0 ]; then
-		EMAIL_LINE=$(echo -ne "\x04 $EMAIL_ICON $EMAILS \x01 ")
+	EMAIL_CREDENTIALS=`cat ~/.config/emailcredentials`
+	EMAILS=`curl \
+		--url imaps://imap.mailbox.org/INBOX \
+		--user "$EMAIL_CREDENTIALS" \
+		-X 'EXAMINE INBOX' 2>&1 \
+		| grep -oP '\* \K[0-9]*(?= EXIST)'`
+	if [[ "$EMAILS" != 0 && "$EMAILS" != "" ]]; then
+		EMAIL_LINE=$(echo -e "\x04 $EMAIL_ICON $EMAILS \x01 ")
 		STATUS="$STATUS$EMAIL_LINE"
 	fi
 fi
