@@ -1,0 +1,88 @@
+diff -up dmenu-5.0-orig/dmenu.1 dmenu-5.0/dmenu.1
+--- dmenu-5.0-orig/dmenu.1	2020-12-11 21:09:53.174037548 +0100
++++ dmenu-5.0/dmenu.1	2020-12-11 21:36:27.239121056 +0100
+@@ -3,7 +3,7 @@
+ dmenu \- dynamic menu
+ .SH SYNOPSIS
+ .B dmenu
+-.RB [ \-biv ]
++.RB [ \-bivt ]
+ .RB [ \-l
+ .IR lines ]
+ .RB [ \-m
+@@ -49,6 +49,9 @@ dmenu appears centered on the screen.
+ .B \-i
+ dmenu matches menu items case insensitively.
+ .TP
++.B \-t
++dmenu displays lines until the first tab character, but prints the whole line to stdout.
++.TP
+ .BI \-l " lines"
+ dmenu lists items vertically, with the given number of lines.
+ .TP
+diff -up dmenu-5.0-orig/dmenu.c dmenu-5.0/dmenu.c
+--- dmenu-5.0-orig/dmenu.c	2020-12-11 21:09:53.174037548 +0100
++++ dmenu-5.0/dmenu.c	2020-12-11 21:36:12.797120299 +0100
+@@ -33,6 +33,7 @@ enum { SchemeNorm, SchemeSel, SchemeOut,
+ 
+ struct item {
+ 	char *text;
++	char *stext;
+ 	struct item *left, *right;
+ 	struct item *next;
+ 	int out;
+@@ -51,6 +52,7 @@ static struct item *itemstail= NULL;
+ static struct item *matches, *matchend;
+ static struct item *prev, *curr, *next, *sel;
+ static int mon = -1, screen;
++static short tsv = 0;
+ 
+ static Atom clip, utf8;
+ static Display *dpy;
+@@ -139,7 +141,7 @@ drawitem(struct item *item, int x, int y
+ 	else
+ 		drw_setscheme(drw, scheme[SchemeNorm]);
+ 
+-	return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
++	return drw_text(drw, x, y, w, bh, lrpad / 2, item->stext, 0);
+ }
+ 
+ static void
+@@ -181,7 +183,7 @@ drawmenu(void)
+ 		}
+ 		x += w;
+ 		for (item = curr; item != next; item = item->right)
+-			x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">")));
++			x = drawitem(item, x, 0, MIN(TEXTW(item->stext), mw - x - TEXTW(">")));
+ 		if (next) {
+ 			w = TEXTW(">");
+ 			drw_setscheme(drw, scheme[SchemeNorm]);
+@@ -697,6 +699,10 @@ readstdin(void)
+ 
+ 		if (!(item->text = strdup(buf+ctrloffset)))
+ 			die("cannot strdup %u bytes:", strlen(buf+ctrloffset)+1);
++		if ((p = strchr(buf+ctrloffset, '\t')) && tsv)
++			*p = '\0';
++		if (!(item->stext = strdup(buf+ctrloffset)))
++			die("cannot strdup %u bytes:", strlen(buf) + 1);
+ 		if (strlen(item->text) > max) {
+ 			max = strlen(maxstr = item->text);
+ 			inputw = maxstr ? TEXTW(maxstr) : 0;
+@@ -857,7 +863,7 @@ setup(void)
+ static void
+ usage(void)
+ {
+-	fputs("usage: dmenu [-bivr] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
++	fputs("usage: dmenu [-bivrt] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+ 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
+ 	exit(1);
+ }
+@@ -877,6 +883,8 @@ main(int argc, char *argv[])
+ 			topbar = 0;
+ 		else if (!strcmp(argv[i], "-r"))   /* incremental */
+ 			incremental = 1;
++		else if (!strcmp(argv[i], "-t"))   /* tsv */
++			tsv = 1;
+ 		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
+ 			centered = 1;
+ 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
