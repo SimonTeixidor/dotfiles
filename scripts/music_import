@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Move current playlist from $MEDIA_DIR/imported to $MEDIA_DIR/music.
+
+MEDIA_DIR=~/media
+
+
+mpc playlist -f '%file%' | xargs -d'\n' -I % dirname "%" | uniq | while read f; do
+	DIR="$MEDIA_DIR/$f"
+	if [[ "$DIR" != $MEDIA_DIR/imported* ]]; then
+		echo "Current track is not in $MEDIA_DIR/imported: $DIR"
+		exit 1
+	fi
+
+	NEW_DIR=$(dirname "${DIR/imported/music}")
+	mkdir -p "$NEW_DIR"
+	mv "$DIR" "$NEW_DIR"
+done
