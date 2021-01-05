@@ -30,9 +30,13 @@ function query() {
 	function distinct_value() {
 		KEY="$1"
 		FILTER="$2"
-		flaql "select value from flacs 
+		FIELD=value
+		if [[ "$KEY" == "PERFORMER" ]]; then
+			FIELD="case when instr(value, '(') != 0 then trim(substr(value, 0, instr(value, '('))) else value end"
+		fi
+		flaql "select $FIELD from flacs 
 		       where tag = '$KEY' and path in ($2)
-		       group by value order by count(*) desc" 2>/dev/null
+		       group by $FIELD order by count(*) desc" 2>/dev/null
 	}
 
 	function filter() {
@@ -41,9 +45,16 @@ function query() {
 		if [[ "$KEY" == "done" ]]; then
 			echo "$CUR"
 			return 0
+		elif [[ "$KEY" == "PERFORMER" ]]; then
+			# Performers some time have their instrument in parenthesis, but this makes it
+			# inconvenient for querying (John Coltrane has two entries one for "saxophone"
+			# and one for "tenor saxophone"). We handle this with a special case.
+			VALS=$(distinct_value "$KEY" "$CUR" | dmenu -i | sed -e 's/^/value like "/g' -e 's/$/%"/g' -e '$!s/$/ or /' | tr -d '\n')
+			filter "$CUR INTERSECT select path from flacs where tag='$KEY' and ($VALS)"
+		else
+			VALS=$(distinct_value "$KEY" "$CUR" | dmenu -i | sed -e 's/^/"/g' -e 's/$/"/g' -e '$!s/$/,/' | tr -d '\n')
+			filter "$CUR INTERSECT select path from flacs where tag='$KEY' and value in ($VALS)"
 		fi
-		VALS=$(distinct_value "$KEY" "$CUR" | dmenu -i | sed -e 's/^/"/g' -e 's/$/"/g' -e '$!s/$/,/' | tr -d '\n')
-		filter "$CUR INTERSECT select path from flacs where tag='$KEY' and value in ($VALS)"
 	}
 
 	mkdir -p `dirname "$DB_PATH"`
