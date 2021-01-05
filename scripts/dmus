@@ -1,0 +1,112 @@
+#!/bin/bash
+#
+# Script around mpc/mpd, controlled by dmenu.
+
+MEDIA_DIR=~/media
+# Main music library
+MUSIC_DIR="$MEDIA_DIR/music"
+# Music backlog, to be imported
+IMPORT_DIR="$MEDIA_DIR/importing"
+# Database file, only needed as an optimisation for large libraries
+DB_PATH=~/.config/dmus/dmus.sqlite
+
+UPDATE_SQL="drop table if exists flacs;
+            create table flacs as select * from flacs_virt;
+	    create index tag_value on flacs(tag,value);
+	    create index path on flacs(path)"
+
+function flaql_init() {
+	echo ".load /usr/local/lib/libflaql
+	      drop table if exists flacs_virt;
+	      create virtual table flacs_virt using flac(\"$1\");"
+}
+
+function query() {
+
+	function flaql() {
+		sqlite3 -init <(echo "$INIT_SQL") "$DB_PATH" "$@"
+	}
+
+	function distinct_value() {
+		KEY="$1"
+		FILTER="$2"
+		flaql "select value from flacs 
+		       where tag = '$KEY' and path in ($2)
+		       group by value order by count(*) desc" 2>/dev/null
+	}
+
+	function filter() {
+		CUR="$1"
+		KEY=$(printf '%s\n' {done,GENRE,PERFORMER,LABEL,ALBUMARTIST,ALBUM,COMPOSER,WORK} | dmenu -i)
+		if [[ "$KEY" == "done" ]]; then
+			echo "$CUR"
+			return 0
+		fi
+		VALS=$(distinct_value "$KEY" "$CUR" | dmenu -i | sed -e 's/^/"/g' -e 's/$/"/g' -e '$!s/$/,/' | tr -d '\n')
+		filter "$CUR INTERSECT select path from flacs where tag='$KEY' and value in ($VALS)"
+	}
+
+	mkdir -p `dirname "$DB_PATH"`
+
+	FILTER=$(filter "select path from flacs")
+
+
+	flaql "select artist || ' - ' || album || '	' || path from (
+			select
+			max(case when lower(tag) = 'albumartist' then value end) as artist,
+			max(case when lower(tag) = 'album' then value end) as album,
+			path
+			from flacs where path in ($FILTER) group by path
+			order by album nulls last, artist
+	) S" 2>/dev/null | rev | cut -d'/' -f2-4 | rev | uniq | dmenu -t -i | cut -d'	' -f2 | sort -u | xargs -d'\n' -I% mpc add %
+}
+
+
+CHOICE=`echo -e 'query\nupdate\nbacklog\nimport\nrate' | dmenu`
+case "$CHOICE" in
+	query)
+		# Query albums in the database
+		query
+	;;
+	update)
+		# Database update
+		mpc update
+		mkdir -p "$(dirname $DB_PATH)"
+		sqlite3 -init <(flaql_init "$MUSIC_DIR") "$DB_PATH" "$UPDATE_SQL" 2> /dev/null
+	;;
+	backlog)
+		# Replace playlist with album from backlog
+		IFS='	'
+		mpc clear > /dev/null
+		sqlite3 -init <(flaql_init "$IMPORT_DIR") /tmp/backlog.db \
+			"select
+		       	    max(case when lower(tag) = 'albumartist' then value end) || ' - ' ||
+		  	    max(case when lower(tag) = 'album' then value end) || '	' || path
+		         from flacs_virt group by path" \
+		  2>/dev/null | while read album f; do
+			 dir=$(dirname "$f")
+			 echo "$album	$dir"
+		    done | uniq | dmenu -t | cut -f2 | cut -d/ -f5- | xargs -I % mpc add "%"
+	;;
+	import)
+		# Import tracks in current playlist to music directory
+		mpc playlist -f '%file%' | xargs -d'\n' -I % dirname "%" | uniq | while read f; do
+			DIR="$MEDIA_DIR/$f"
+			if [[ "$DIR" != $IMPORT_DIR/* ]]; then
+				echo "Current track is not in $IMPORT_DIR: $DIR"
+				exit 1
+			fi
+
+			NEW_DIR=$(dirname "${DIR/importing/music}")
+			mkdir -p "$NEW_DIR"
+			mv "$DIR" "$NEW_DIR"
+		done
+
+		# Remove artist directory if there are no remaining albums.
+		find "$MEDIA_DIR"/importing/ -empty -type d -delete
+	;;
+	rate)
+		RATING=$(echo -e "1\n2\n3\n4\n5" | dmenu)
+		mpc playlist -f '%file%' | xargs -d '\n' -I % metaflac --set-tag=RATING=$RATING "$MEDIA_DIR/%"
+	;;
+esac
