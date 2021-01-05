@@ -12,9 +12,11 @@ info_text() {
 		return
 	fi
 
-	TAGS=`metaflac --show-tag=conductor --show-tag=ensemble \
-		--show-tag=performer --show-tag=label --show-tag=recordingdate \
-		--show-tag=recordinglocation "$FILE"`
+	TAGS=`metaflac --show-tag=composer --show-tag=work \
+		--show-tag=opus  --show-tag=conductor \
+		--show-tag=ensemble --show-tag=performer --show-tag=label \
+		--show-tag=recordingdate --show-tag=recordinglocation \
+		--show-tag=rating "$FILE"`
 	CURKEY=
 	echo "$TAGS" | format_grouped
 	tput civis
