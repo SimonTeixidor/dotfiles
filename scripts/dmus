@@ -69,7 +69,7 @@ function query() {
 			path
 			from flacs where path in ($FILTER) group by path
 			order by album nulls last, artist
-	) S" 2>/dev/null | rev | cut -d'/' -f2-4 | rev | uniq | dmenu -t -i | cut -d'	' -f2 | sort -u | xargs -d'\n' -I% mpc add %
+	) S" 2>/dev/null | rev | cut -d'/' -f2- | rev | uniq | dmenu -t -i | cut -d'	' -f2 | rev | cut -d'/' -f-3 | rev | sort -u | xargs -d'\n' -I% mpc add %
 }
 
 
