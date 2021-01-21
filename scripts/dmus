@@ -77,7 +77,7 @@ function query() {
 mpd 2>/dev/null
 
 while true; do
-	CHOICE=`echo -e 'query\nupdate\nbacklog\nimport\nrate' | dmenu`
+	CHOICE=`echo -e 'query\nupdate\nbacklog\nimport\nrate\nclear' | dmenu`
 	[ $? == 0 ] || exit 1
 	case "$CHOICE" in
 		query)
@@ -125,5 +125,9 @@ while true; do
 			RATING=$(echo -e "1\n2\n3\n4\n5" | dmenu)
 			mpc playlist -f '%file%' | xargs -d '\n' -I % metaflac --set-tag=RATING=$RATING "$MEDIA_DIR/%"
 		;;
+		clear)
+			mpc clear
+		;;
+
 	esac
 done
