@@ -16,7 +16,7 @@ info_text() {
 		--show-tag=opus  --show-tag=conductor \
 		--show-tag=ensemble --show-tag=performer --show-tag=label \
 		--show-tag=recordingdate --show-tag=recordinglocation \
-		--show-tag=rating "$FILE"`
+		--show-tag=rating "$FILE" | tr a-z A-Z`
 	CURKEY=
 	echo "$TAGS" | format_grouped
 	tput civis
