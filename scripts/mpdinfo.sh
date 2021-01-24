@@ -16,7 +16,7 @@ info_text() {
 		--show-tag=opus  --show-tag=conductor \
 		--show-tag=ensemble --show-tag=performer --show-tag=label \
 		--show-tag=recordingdate --show-tag=recordinglocation \
-		--show-tag=rating "$FILE" | tr a-z A-Z`
+		--show-tag=rating "$FILE"`
 	CURKEY=
 	echo "$TAGS" | format_grouped
 	tput civis
@@ -31,6 +31,7 @@ info_text() {
 format_grouped() {
 	CURKEY=
 	while IFS='=' read -r key val; do
+		KEY=`echo "$key" | tr a-z A-Z`
 		[ "$CURKEY" = "$key" ] || { CURKEY="$key"; printf "\033[1;32m$key:\033[0m\n"; }
 		echo "$LINEBEGIN $val" | fold -s -w $((COLS-4)) | while read l; do 
 		case $l in
