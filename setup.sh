@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 DEST=$1
 
 if [ "$DEST" == "" ]; then
 	echo "You must provide a parameter!"
 	exit -1
 fi
+
+mkdir -p "$DEST/bin"
 
 wget https://raw.githubusercontent.com/tlvince/prowler/master/prowler -O "$DEST/bin/prowler"
 chmod +x "$DEST/bin/prowler"
@@ -41,7 +43,8 @@ if [ ! -d "$DEST/.config/readline" ]; then
 fi
 cp misc/inputrc $DEST/.config/readline/
 
-wget https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png -O $DEST/.local/share/wall.png
+mkdir -p "$DEST/.local/share"
+wget https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png -O "$DEST/.local/share/wall.png"
 cp misc/user-dirs.dirs $DEST/.config/
 cp -r misc/npm $DEST/.config
 cp -r gtk-3.0 $DEST/.config/
