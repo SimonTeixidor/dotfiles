@@ -65,13 +65,19 @@ static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normBg, "-nf", selFg, "-sb",  selBg, "-sf", selFg, NULL };
 static const char *termcmd[] = { "st", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
+static const char *brightnessUpCmd[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightnessDownCmd[] = { "xbacklight", "-dec", "10", NULL };
 
+#define XF86MonBrightnessDown 0x1008ff03
+#define XF86MonBrightnessUp 0x1008ff02
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
+	{ NULL,                         XF86MonBrightnessUp,      spawn,          {.v = brightnessUpCmd} },
+	{ NULL,                         XF86MonBrightnessDown,      spawn,          {.v = brightnessDownCmd} },
 	{ MODKEY,                       XK_F1,     mpdchange,      {.i = -1} },
 	{ MODKEY,                       XK_F2,     mpdchange,      {.i = +1} },
 	{ MODKEY,                       XK_Escape, mpdcontrol,     {0} },
