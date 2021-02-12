@@ -1,6 +1,7 @@
 setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
-xmodmap /home/simon/.config/X11/Xmodmap
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
 compton -c -b &
 hsetroot -tile .local/share/wall.png &
 prowler &
