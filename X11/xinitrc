@@ -1,2 +1,2 @@
-xrandr --output eDP --right-of HDMI-A-0
+xrandr --output DisplayPort-0 --left-of eDP --mode 3840x2160 --rate 60
 exec ~/bin/startdwm

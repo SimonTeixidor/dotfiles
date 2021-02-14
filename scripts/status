@@ -1,6 +1,6 @@
 #!/bin/bash
 WITH_EMAIL=true
-WITH_BATTERY=false
+WITH_BATTERY=true
 STATUS=""
 
 if [ "$WITH_EMAIL" = true ]; then
@@ -12,7 +12,7 @@ if [ "$WITH_EMAIL" = true ]; then
 		-X 'EXAMINE INBOX' 2>&1 \
 		| grep -oP '\* \K[0-9]*(?= EXIST)'`
 	if [[ "$EMAILS" != 0 && "$EMAILS" != "" ]]; then
-		EMAIL_LINE=$(echo -e "\x04 $EMAIL_ICON $EMAILS \x01 ")
+		EMAIL_LINE=$(echo -e "\x04 $EMAIL_ICON$EMAILS \x01 ")
 		STATUS="$STATUS$EMAIL_LINE"
 	fi
 fi
@@ -20,12 +20,12 @@ fi
 if [ "$WITH_BATTERY" = true ]; then
 	battery=$(acpi -b | cut -d"," -f2 | cut -d" " -f2 | cut -d'%' -f1)
 	if [ $battery -lt "15" ]; then
-		STATUS="$STATUS$(echo -e "\x03 ")"
+		STATUS="$STATUS$(echo -e "\x03")"
 	else
-		STATUS="$STATUS$(echo -e "\x02 ")"
+		STATUS="$STATUS$(echo -e "\x02")"
 	fi
-	STATUS="$STATUS$battery%"
+	STATUS="$STATUS$battery% "
 fi
 
-STATUS="$STATUS $(date +"%H:%M")"
+STATUS="$STATUS$(date +"%H:%M")"
 xsetroot -name "$STATUS"
