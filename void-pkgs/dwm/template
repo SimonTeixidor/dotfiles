@@ -2,7 +2,7 @@
 pkgname=dwm
 patch_args="-p1"
 version=6.2
-revision=9999
+revision=999
 makedepends="libXinerama-devel libXft-devel freetype-devel libmpdclient-devel"
 short_desc="Dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.org>"

@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Terminus:pixelsize=11";
+static char *font = "Terminus:size=11";
 static int borderpx = 2;
 #define histsize 2000
 

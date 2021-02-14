@@ -11,8 +11,8 @@ static const Bool showsystray = True;
 #define normFg "#6272a4"
 #define selFg "#f8f8f2"
 #define selBg "#bd93f9"
-#define font "Terminus:pixelsize=11"
-#define icon_font "stlarch:pixelsize=11"
+#define font "Terminus:size=11"
+#define icon_font "stlarch:size=11"
 
 static const char *fonts[]            = { font, icon_font };
 

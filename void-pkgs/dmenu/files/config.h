@@ -4,8 +4,8 @@
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"Terminus:pixelsize=11",
-	"stlarch:pixelsize=11"
+	"Terminus:size=11",
+	"stlarch:size=11"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 
