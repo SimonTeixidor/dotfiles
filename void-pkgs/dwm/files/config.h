@@ -67,6 +67,7 @@ static const char *termcmd[] = { "st", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *brightnessUpCmd[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightnessDownCmd[] = { "xbacklight", "-dec", "10", NULL };
+static const char *lockCmd[] = { "slock", "sudo", "zzz", NULL };
 
 #define XF86MonBrightnessDown 0x1008ff03
 #define XF86MonBrightnessUp 0x1008ff02
@@ -74,6 +75,7 @@ static const char *brightnessDownCmd[] = { "xbacklight", "-dec", "10", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_q,	   spawn,          {.v = lockCmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
 	{ NULL,                         XF86MonBrightnessUp,      spawn,          {.v = brightnessUpCmd} },
