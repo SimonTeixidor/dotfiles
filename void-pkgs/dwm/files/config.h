@@ -2,9 +2,6 @@
 
 /* See LICENSE file for copyright and license details. */
 
-static const unsigned int systrayspacing = 2; /* systray spacing */
-static const Bool showsystray = True; 
-
 #define NUMCOLORS 4
 
 #define normBg "#282a36"
@@ -37,7 +34,10 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 8;        /* vertical padding for statusbar */
-
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;     /* 0 means no systray */
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4" };
