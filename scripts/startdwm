@@ -8,6 +8,7 @@ hsetroot -tile .local/share/wall.png &
 prowler &
 redshift -l 47:8 &
 $(sleep 1; ~/bin/status) &
+pasystray &
 while true; do
 	dwm
 done
