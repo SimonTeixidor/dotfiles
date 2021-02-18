@@ -1,14 +1,9 @@
-setxkbmap -option terminate:ctrl_alt_bksp
-setxkbmap us
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
 xrandr | grep 3840 >/dev/null && xrandr --dpi 120
 compton -c -b &
 hsetroot -tile .local/share/wall.png &
 prowler &
 redshift -l 47:8 &
 $(sleep 1; ~/bin/status) &
-pasystray &
 while true; do
 	dwm
 done

@@ -11,7 +11,6 @@ export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
 export LESSHISTFILE=-
 export CARGO_HOME="$XDG_CACHE_HOME/cargo/"
 export RUSTUP_HOME="$XDG_CACHE_HOME/rustup/"
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
