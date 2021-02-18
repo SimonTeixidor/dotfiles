@@ -2,8 +2,8 @@
 
 MUSICDIR=~/media/
 COLS=51
-IMG_WIDTH=$((COLS*6+1))
-ROWS=$((IMG_WIDTH/12))
+IMG_WIDTH=$((COLS*10+1))
+ROWS=$((IMG_WIDTH/18))
 LINEBEGIN=`printf "\033[34m*\033[0m"`
 
 info_text() {
