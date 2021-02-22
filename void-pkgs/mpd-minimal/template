@@ -1,0 +1,62 @@
+pkgname=mpd-minimal
+version=0.22.6
+revision=1
+build_style=meson
+conf_files="/etc/mpd.conf"
+hostmakedepends="pkg-config python3-Sphinx"
+makedepends="boost-devel libflac-devel alsa-lib-devel pulseaudio-devel libmpdclient-devel"
+short_desc="Flexible, powerful, server-side application for playing music"
+maintainer="Simon Persson <simon@flaskpost.me>"
+license="GPL-2.0-or-later"
+homepage="https://www.musicpd.org/"
+changelog="https://raw.githubusercontent.com/MusicPlayerDaemon/MPD/v${version}/NEWS"
+distfiles="https://www.musicpd.org/download/mpd/${version%.*}/mpd-${version}.tar.xz"
+checksum=2be149a4895c3cb613477f8cf1193593e3d8a1d38a75ffa7d32da8c8316a4d5e
+LDFLAGS+=" -Wl,-z,stack-size=1048576"
+wrksrc=mpd-0.22.6
+
+configure_args="-Ddbus=disabled
+-Dopus=disabled -Dmikmod=disabled -Dneighbor=true
+ -Dsoundcloud=disabled -Dpipe=true -Dtwolame=disabled -Dbzip2=disabled
+ -Dzzip=disabled -Dsmbclient=disabled -Dsystemd=disabled -Dqobuz=disabled
+ -Dchromaprint=disabled -Dsoxr=disabled -Dshout=disabled -Dadplug=disabled
+ -Dfluidsynth=disabled -Dgme=disabled -Dwildmidi=disabled -Dsidplay=disabled
+ -Dshine=disabled -Ddocumentation=enabled -Daudiofile=disabled -Dtremor=disabled
+ -Dsolaris_output=disabled -Djack=disabled -Dlame=disabled -Dao=disabled
+ -Dmpcdec=disabled -Dsndio=disabled -Dpulse=enabled -Dwavpack=disabled
+ -Dcdio_paranoia=disabled -Dopenal=disabled -Dudisks=disabled -Dicu=disabled -Dexpat=disabled
+ -Dcurl=disabled -Did3tag=disabled
+ -Dlibsamplerate=disabled -Dmms=disabled -Dnfs=disabled -Dsmbclient=disabled
+ -Dsoxr=disabled -Dupnp=disabled -Dwebdav=disabled -Dzeroconf=disabled
+ -Dzlib=disabled -Dzzip=disabled -Dalsa=enabled -Dao=disabled -Djack=disabled
+ -Dopenal=disabled -Doss=disabled -Dffmpeg=disabled -Dflac=enabled
+ -Dfaad=disabled -Daudiofile=disabled -Dadplug=disabled
+ -Dfluidsynth=disabled -Dgme=disabled -Dmad=disabled -Dmikmod=disabled
+ -Dmodplug=disabled -Dmpcdec=disabled -Dmpg123=disabled -Dsidplay=disabled
+ -Dsndfile=disabled -Dsndfile=disabled -Dvorbis=disabled -Dwavpack=disabled
+ -Dwildmidi=disabled -Dqobuz=disabled -Dsoundcloud=disabled -Dtidal=disabled
+ -Dyajl=disabled -Diso9660=disabled -Dvorbisenc=disabled -Dpcre=disabled
+ -Dsqlite=disabled -Dhtml_manual=false -Dmanpages=true
+"
+
+system_accounts="mpd"
+mpd_homedir="/var/lib/mpd"
+mpd_groups="audio"
+
+make_dirs="
+ /var/lib/mpd 0755 mpd mpd
+ /var/lib/mpd/playlists 0755 mpd mpd"
+
+post_install() {
+	vconf doc/mpdconf.example mpd.conf
+	vsconf doc/mpdconf.example
+	sed \
+		-e '/^#playlist_directory/c playlist_directory "/var/lib/mpd/playlists"' \
+		-e '/^#db_file/c db_file "/var/lib/mpd/mpd.db"' \
+		-e '/^#pid_file/c pid_file "/run/mpd/mpd.pid"' \
+		-e '/^#state_file/c state_file "/var/lib/mpd/mpdstate"' \
+		-e '/^#user/c user "mpd"' \
+		-i ${DESTDIR}/etc/mpd.conf
+
+	vsv mpd
+}
