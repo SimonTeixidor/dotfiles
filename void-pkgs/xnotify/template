@@ -1,0 +1,23 @@
+# Template file for 'dmenu'
+pkgname=xnotify
+version=0.8.1
+patch_args="-p1"
+revision=1
+makedepends="libXinerama-devel libXft-devel freetype-devel imlib2-devel"
+short_desc="Notification program for X"
+maintainer="Simon Persson <simon@flaskpost.me>"
+license="MIT"
+homepage="https://github.com/phillbush/xnotify"
+distfiles="https://github.com/phillbush/xnotify/archive/12ab66aef787717acbdc6aa805c49cc5de8d6128.zip"
+checksum=7e7b374ccb1a85e3a77217a570d9cf39862b07ba4bcca5f158065c9f9cb2b152
+wrksrc="xnotify-12ab66aef787717acbdc6aa805c49cc5de8d6128"
+
+do_build() {
+	[ -e ${FILESDIR}/config.h ] && cp ${FILESDIR}/config.h config.h
+	make CC="$CC" ${makejobs}
+}
+
+do_install() {
+	make PREFIX=/usr DESTDIR=${DESTDIR} install
+	vlicense LICENSE
+}
