@@ -1,3 +1,4 @@
+#!/bin/bash
 xrandr | grep 3840 >/dev/null && xrdb -merge <(echo 'Xft.dpi: 120')
 compton -c -b &
 hsetroot -tile .local/share/wall.png &
