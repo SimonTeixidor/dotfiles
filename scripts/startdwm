@@ -1,6 +1,6 @@
 #!/bin/bash
 xrandr | grep 3840 >/dev/null && xrdb -merge <(echo 'Xft.dpi: 120')
-compton -c -b &
+picom -c -b --experimental-backends &
 hsetroot -tile .local/share/wall.png &
 prowler &
 redshift -l 47:8 &
