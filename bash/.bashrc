@@ -32,6 +32,7 @@ export EDITOR='vim'
 alias ls='ls --color=auto'
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias grep='grep --color=auto'
+alias sbt="sbt -ivy \"$XDG_DATA_HOME\"/ivy2 -sbt-dir \"$XDG_DATA_HOME\"/sbt"
 
 export PATH=$PATH:~/bin:~/.cache/cargo/bin/
 source /usr/share/bash-completion/completions/pass
