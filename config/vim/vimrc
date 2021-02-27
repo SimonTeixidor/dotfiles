@@ -10,6 +10,7 @@ set rtp+=$MYVIMDIR/bundle/Vundle.vim
 call vundle#begin("~/.config/vim/bundle")
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'neoclide/coc.nvim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -22,9 +23,14 @@ set mouse=r
 
 set viewdir=$MYVIMDIR/view
 
-colorscheme delek
 let g:rustfmt_autosave = 1
-let g:ycm_rust_src_path = '/home/simon/.multirust/src'
 
 source $MYVIMDIR/xdg.vim
 autocmd FileType sql :setlocal sw=2 ts=2 sts=2
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>qf  <Plug>(coc-fix-current)
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
