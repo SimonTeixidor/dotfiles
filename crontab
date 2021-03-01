@@ -1,0 +1,1 @@
+* * * * * /bin/who | /bin/grep --quiet $USER && DISPLAY=:0 /home/$USER/bin/status
