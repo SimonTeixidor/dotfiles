@@ -12,7 +12,7 @@ if [ "$WITH_EMAIL" = true ]; then
 		-X 'EXAMINE INBOX' 2>&1 \
 		| grep -oP '\* \K[0-9]*(?= EXIST)'`
 	if [[ "$EMAILS" != 0 && "$EMAILS" != "" ]]; then
-		EMAIL_LINE=$(echo -e "\x04 $EMAIL_ICON$EMAILS \x01 ")
+		EMAIL_LINE=$(echo -e "$EMAIL_ICON$EMAILS")
 		STATUS="$STATUS$EMAIL_LINE"
 	fi
 fi
@@ -20,9 +20,9 @@ fi
 if [ "$WITH_BATTERY" = true ]; then
 	battery=$(acpi -b | cut -d"," -f2 | cut -d" " -f2 | cut -d'%' -f1)
 	if [ $battery -lt "15" ]; then
-		STATUS="$STATUS$(echo -e "\x03")"
+		STATUS="$STATUS$(echo -e "")"
 	else
-		STATUS="$STATUS$(echo -e "\x02")"
+		STATUS="$STATUS$(echo -e "")"
 	fi
 	STATUS="$STATUS$battery% "
 fi

@@ -9,6 +9,7 @@
 #define normFg "#6272a4"
 #define selFg "#f8f8f2"
 #define selBg "#bd93f9"
+#define urgentBg "#AB4642"
 #define font "Terminus:size=11"
 #define icon_font "stlarch:size=11"
 
@@ -21,6 +22,7 @@ static const char *colors[][3]      = {
 	[SchemeStatus] = { selFg, normBg, normFg },
 	[SchemeTagsSel]  = { selFg, selBg, normFg },
 	[SchemeTagsNorm]  = { normFg, normBg, normFg },
+	[SchemeTagsUrgent]  = { selFg, urgentBg, normFg },
 	[SchemeInfoSel]  = { selFg, normBg, normFg },
 	[SchemeInfoNorm]  = { selFg, normBg, normFg },
 };
@@ -43,7 +45,10 @@ static const int showsystray        = 1;     /* 0 means no systray */
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4" };
 
-static const Rule rules[0];
+static const Rule rules[] = {
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ NULL,       NULL,       NULL,       0,            False,       -1 },
+};
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -52,7 +57,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle }
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
@@ -77,14 +82,15 @@ static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "@DEFAULT_
 
 static Key keys[] = {
 	/* modifier                     key                       function        argument */
-	{ NULL,                         XF86XK_MonBrightnessUp,   spawn,          {.v = brightnessUpCmd} },
-	{ NULL,                         XF86XK_MonBrightnessDown, spawn,          {.v = brightnessDownCmd} },
-	{ NULL,                         XF86XK_AudioMicMute,      spawn,          {.v = mutemic } },
+	{ 0,                            XF86XK_MonBrightnessUp,   spawn,          {.v = brightnessUpCmd} },
+	{ 0,                            XF86XK_MonBrightnessDown, spawn,          {.v = brightnessDownCmd} },
+	{ 0,                            XF86XK_AudioMicMute,      spawn,          {.v = mutemic } },
 	{ 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute,         spawn,          {.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol   } },
 	{ MODKEY|ShiftMask,             XK_Return,                spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_q,	                  spawn,          {.v = lockCmd } },
+	{ MODKEY|ShiftMask,             XK_b,                     togglebar,      {0} },
 	{ MODKEY,                       XK_m,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,                     spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_F1,                    mpdchange,      {.i = -1} },
