@@ -4,7 +4,7 @@ revision=1
 build_style=meson
 conf_files="/etc/mpd.conf"
 hostmakedepends="pkg-config python3-Sphinx"
-makedepends="boost-devel libflac-devel alsa-lib-devel pulseaudio-devel libmpdclient-devel"
+makedepends="boost-devel libflac-devel alsa-lib-devel pulseaudio-devel libmpdclient-devel libnfs-devel"
 short_desc="Flexible, powerful, server-side application for playing music"
 maintainer="Simon Persson <simon@flaskpost.me>"
 license="GPL-2.0-or-later"
@@ -26,7 +26,7 @@ configure_args="-Ddbus=disabled
  -Dmpcdec=disabled -Dsndio=disabled -Dpulse=enabled -Dwavpack=disabled
  -Dcdio_paranoia=disabled -Dopenal=disabled -Dudisks=disabled -Dicu=disabled -Dexpat=disabled
  -Dcurl=disabled -Did3tag=disabled
- -Dlibsamplerate=disabled -Dmms=disabled -Dnfs=disabled -Dsmbclient=disabled
+ -Dlibsamplerate=disabled -Dmms=disabled -Dnfs=enabled -Dsmbclient=disabled
  -Dsoxr=disabled -Dupnp=disabled -Dwebdav=disabled -Dzeroconf=disabled
  -Dzlib=disabled -Dzzip=disabled -Dalsa=enabled -Dao=disabled -Djack=disabled
  -Dopenal=disabled -Doss=disabled -Dffmpeg=disabled -Dflac=enabled
