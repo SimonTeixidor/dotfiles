@@ -16,9 +16,6 @@ filetype plugin indent on    " required
 
 syntax on
 set number
-set nobackup
-set nowritebackup
-set noundofile
 set mouse=r
 
 set viewdir=$MYVIMDIR/view
@@ -34,3 +31,4 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+set scl=no
