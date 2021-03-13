@@ -9,6 +9,8 @@ static char *font = "Terminus:size=11";
 static int borderpx = 2;
 #define histsize 2000
 
+static int max_sixel_scrollback = 1000;
+
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
