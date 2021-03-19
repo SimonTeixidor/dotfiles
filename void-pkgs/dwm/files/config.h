@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normBg, "-nf", selFg, "-sb",  selBg, "-sf", selFg, NULL };
-static const char *termcmd[] = { "st", NULL };
+static const char *termcmd[] = { "xterm", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *brightnessUpCmd[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightnessDownCmd[] = { "xbacklight", "-dec", "10", NULL };
