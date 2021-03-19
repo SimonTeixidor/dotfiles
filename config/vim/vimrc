@@ -11,6 +11,8 @@ call vundle#begin("~/.config/vim/bundle")
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'neoclide/coc.nvim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'CraigGiles/scala.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -29,6 +31,16 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf  :<C-u>CocFix<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+
 set scl=no
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+set hidden
+nmap <leader>bb :CtrlPBuffer<cr>
+
+highlight CocErrorFloat ctermbg=Red ctermfg=Black
+highlight CocFloating ctermbg=Red ctermfg=Black
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
