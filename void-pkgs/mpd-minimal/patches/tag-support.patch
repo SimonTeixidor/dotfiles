@@ -1,0 +1,157 @@
+From f21253a2292c52230e0f53339b075b64e0c4d7d6 Mon Sep 17 00:00:00 2001
+From: Simon Persson <simon@flaskpost.me>
+Date: Wed, 24 Mar 2021 20:58:56 +0100
+Subject: [PATCH 1/2] Support new tags in proxy plugin
+
+Add support for the following tags when using the proxy database plugin:
+WORK
+CONDUCTOR
+LABEL
+GROUPING
+MUSICBRAINZ_WORKID
+COMPOSERSORT
+ENSEMBLE
+MOVEMENT
+MOVEMENTNUMBER
+LOCATION
+---
+ src/db/plugins/ProxyDatabasePlugin.cxx | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/src/db/plugins/ProxyDatabasePlugin.cxx b/src/db/plugins/ProxyDatabasePlugin.cxx
+index a4fe43bcf..b07bbe903 100644
+--- a/src/db/plugins/ProxyDatabasePlugin.cxx
++++ b/src/db/plugins/ProxyDatabasePlugin.cxx
+@@ -188,6 +188,20 @@ static constexpr struct {
+ #endif
+ #if LIBMPDCLIENT_CHECK_VERSION(2,12,0)
+ 	{ TAG_ALBUM_SORT, MPD_TAG_ALBUM_SORT },
++#endif
++#if LIBMPDCLIENT_CHECK_VERSION(2,17,0)
++	{ TAG_WORK, MPD_TAG_WORK },
++	{ TAG_CONDUCTOR, MPD_TAG_CONDUCTOR },
++	{ TAG_LABEL, MPD_TAG_LABEL },
++	{ TAG_GROUPING, MPD_TAG_GROUPING },
++	{ TAG_MUSICBRAINZ_WORKID, MPD_TAG_MUSICBRAINZ_WORKID },
++#endif
++#if LIBMPDCLIENT_CHECK_VERSION(2,20,0)
++	{ TAG_COMPOSERSORT, MPD_TAG_COMPOSER_SORT },
++	{ TAG_ENSEMBLE, MPD_TAG_ENSEMBLE },
++	{ TAG_MOVEMENT, MPD_TAG_MOVEMENT },
++	{ TAG_MOVEMENTNUMBER, MPD_TAG_MOVEMENTNUMBER },
++	{ TAG_LOCATION, MPD_TAG_LOCATION },
+ #endif
+ 	{ TAG_NUM_OF_ITEM_TYPES, MPD_TAG_COUNT }
+ };
+-- 
+2.31.0
+
+
+From f2805f0c57a037349416e134ae1ec40692746d14 Mon Sep 17 00:00:00 2001
+From: Simon Persson <simon@flaskpost.org>
+Date: Sun, 3 May 2020 17:30:31 +0200
+Subject: [PATCH 2/2] Add tags relevant to classical music.
+
+This commit adds some tags that are (mostly) interesting for listeners
+of classical music.
+
+Ensemble
+--------
+This is an ensemble that is playing the music, such as Wiener
+Philharmoniker. The tag can be used to distinguish the ensemble from the
+conductor, composer, soloist, and ensemble, that are generally all in
+the "ARTIST" tag.
+
+Movement
+-------
+The movement number and movement (name) of this track, i.e.  "II" and
+"Allegro".
+
+ComposerSort
+------------
+Allows us to look for Beethoven's 9th under B, for Beethoven, not L for
+Ludwig.
+
+Location
+--------
+This is the location of the recording, e.g. "Wiener Musikverein".
+---
+ doc/protocol.rst          | 5 +++++
+ src/lib/xiph/XiphTags.cxx | 2 ++
+ src/tag/Names.c           | 5 +++++
+ src/tag/Type.h            | 5 +++++
+ 4 files changed, 17 insertions(+)
+
+diff --git a/doc/protocol.rst b/doc/protocol.rst
+index 3d2c90f4d..de980d93f 100644
+--- a/doc/protocol.rst
++++ b/doc/protocol.rst
+@@ -286,10 +286,15 @@ The following tags are supported by :program:`MPD`:
+ * **date**: the song's release date. This is usually a 4-digit year.
+ * **originaldate**: the song's original release date.
+ * **composer**: the artist who composed the song.
++* **composersort**: same as composer, but for sorting.
+ * **performer**: the artist who performed the song.
+ * **conductor**: the conductor who conducted the song.
+ * **work**: `"a work is a distinct intellectual or artistic creation,
+   which can be expressed in the form of one or more audio recordings" <https://musicbrainz.org/doc/Work>`_
++* **ensemble**: the ensemble performing this song, e.g. "Wiener Philharmoniker".
++* **movement**: name of the movement, e.g. "Andante con moto".
++* **movementnumber**: movement number, e.g. "2" or "II".
++* **location**: location of the recording, e.g. "Royal Albert Hall".
+ * **grouping**: "used if the sound belongs to a larger category of
+   sounds/music" (`from the IDv2.4.0 TIT1 description
+   <http://id3.org/id3v2.4.0-frames>`_).
+diff --git a/src/lib/xiph/XiphTags.cxx b/src/lib/xiph/XiphTags.cxx
+index 4e8a4a922..53f0ddd28 100644
+--- a/src/lib/xiph/XiphTags.cxx
++++ b/src/lib/xiph/XiphTags.cxx
+@@ -28,5 +28,7 @@ const struct tag_table xiph_tags[] = {
+ 	{ "tracknumber", TAG_TRACK },
+ 	{ "discnumber", TAG_DISC },
+ 	{ "description", TAG_COMMENT },
++	{ "movementname", TAG_MOVEMENT },
++	{ "movement", TAG_MOVEMENTNUMBER },
+ 	{ nullptr, TAG_NUM_OF_ITEM_TYPES }
+ };
+diff --git a/src/tag/Names.c b/src/tag/Names.c
+index 8856ee601..b16a42665 100644
+--- a/src/tag/Names.c
++++ b/src/tag/Names.c
+@@ -33,9 +33,14 @@ const char *const tag_item_names[TAG_NUM_OF_ITEM_TYPES] = {
+ 	[TAG_DATE] = "Date",
+ 	[TAG_ORIGINAL_DATE] = "OriginalDate",
+ 	[TAG_COMPOSER] = "Composer",
++	[TAG_COMPOSERSORT] = "ComposerSort",
+ 	[TAG_PERFORMER] = "Performer",
+ 	[TAG_CONDUCTOR] = "Conductor",
+ 	[TAG_WORK] = "Work",
++	[TAG_MOVEMENT] = "Movement",
++	[TAG_MOVEMENTNUMBER] = "MovementNumber",
++	[TAG_ENSEMBLE] = "Ensemble",
++	[TAG_LOCATION] = "Location",
+ 	[TAG_GROUPING] = "Grouping",
+ 	[TAG_COMMENT] = "Comment",
+ 	[TAG_DISC] = "Disc",
+diff --git a/src/tag/Type.h b/src/tag/Type.h
+index 193402be2..46778d8b0 100644
+--- a/src/tag/Type.h
++++ b/src/tag/Type.h
+@@ -48,9 +48,14 @@ enum TagType
+ 	TAG_DATE,
+ 	TAG_ORIGINAL_DATE,
+ 	TAG_COMPOSER,
++	TAG_COMPOSERSORT,
+ 	TAG_PERFORMER,
+ 	TAG_CONDUCTOR,
+ 	TAG_WORK,
++	TAG_MOVEMENT,
++	TAG_MOVEMENTNUMBER,
++	TAG_ENSEMBLE,
++	TAG_LOCATION,
+ 	TAG_GROUPING,
+ 	TAG_COMMENT,
+ 	TAG_DISC,
+-- 
+2.31.0
+

@@ -1,0 +1,27 @@
+# Template file for 'libmpdclient'
+pkgname=libmpdclient
+version=2.20
+revision=1
+build_style=meson
+short_desc="Asynchronous API library for interfacing MPD"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="BSD-3-Clause"
+homepage="http://www.musicpd.org/libs/libmpdclient/"
+distfiles="https://github.com/MusicPlayerDaemon/libmpdclient/archive/refs/heads/master.zip"
+checksum=a406693b741cacecca035f01458abc2465c9cffb41578e00efe741d882339b32
+wrksrc=libmpdclient-master
+
+post_install() {
+	vlicense COPYING
+}
+
+libmpdclient-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+		vmove usr/share/vala
+	}
+}
