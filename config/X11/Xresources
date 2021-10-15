@@ -29,3 +29,4 @@ Sxiv.foreground: #f8f8f2
 *.color7         : #BFBFBF
 *.color15        : #E6E6E6
 *.decTerminalID  : vt340
+*.sixelScrolling : false
