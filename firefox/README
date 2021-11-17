@@ -1,0 +1,4 @@
+In about:config:
+
+set layout.css.devPixelsPerPx to 1
+set toolkit.legacyUserProfileCustomizations.stylesheets true

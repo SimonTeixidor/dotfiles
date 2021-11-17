@@ -13,6 +13,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'CraigGiles/scala.vim'
+Plugin 'arcticicestudio/nord-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -44,3 +45,4 @@ highlight CocErrorFloat ctermbg=Red ctermfg=Black
 highlight CocFloating ctermbg=Red ctermfg=Black
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+colorscheme nord

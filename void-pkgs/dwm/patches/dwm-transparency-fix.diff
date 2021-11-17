@@ -1,0 +1,10 @@
+--- dwm-6.2-orig/drw.c	2021-11-18 09:21:04.763690963 +0100
++++ dwm-6.2/drw.c	2021-11-18 09:21:24.950394282 +0100
+@@ -202,6 +202,7 @@ drw_clr_create(Drw *drw, Clr *dest, cons
+ 	                       DefaultColormap(drw->dpy, drw->screen),
+ 	                       clrname, dest))
+ 		die("error, cannot allocate color '%s'", clrname);
++	dest->pixel |= 0xff << 24;
+ }
+ 
+ /* Wrapper to create color schemes. The caller has to call free(3) on the

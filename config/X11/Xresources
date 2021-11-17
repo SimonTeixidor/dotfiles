@@ -4,29 +4,31 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+XTerm*termName: xterm-256color
 
-Sxiv.background: #282a36
-Sxiv.foreground: #f8f8f2
+*.font : -*-terminus-medium-r-normal-*-*-180-*-*-*-*-iso10646-*
+*.boldFont : -*-terminus-bold-r-normal-*-*-180-*-*-*-*-iso10646-*
+*.decTerminalID : vt340
+*.foreground: #D8DEE9
+*.background: #2E3440
+*.cursorColor: #D8DEE9
+*fading: 35
+*fadeColor: #4C566A
 
-*.font           : -*-terminus-medium-r-normal-*-*-180-*-*-*-*-iso10646-*
-*.boldFont       : -*-terminus-bold-r-normal-*-*-180-*-*-*-*-iso10646-*
-*vt100.foreground: #F8F8F2
-*vt100.background: #282A36
-*.color0         : #000000
-*.color8         : #4D4D4D
-*.color1         : #FF5555
-*.color9         : #FF6E67
-*.color2         : #50FA7B
-*.color10        : #5AF78E
-*.color3         : #F1FA8C
-*.color11        : #F4F99D
-*.color4         : #BD93F9
-*.color12        : #CAA9FA
-*.color5         : #FF79C6
-*.color13        : #FF92D0
-*.color6         : #8BE9FD
-*.color14        : #9AEDFE
-*.color7         : #BFBFBF
-*.color15        : #E6E6E6
-*.decTerminalID  : vt340
+*.color0: #3B4252
+*.color1: #BF616A
+*.color2: #A3BE8C
+*.color3: #EBCB8B
+*.color4: #81A1C1
+*.color5: #B48EAD
+*.color6: #88C0D0
+*.color7: #E5E9F0
+*.color8: #4C566A
+*.color9: #BF616A
+*.color10: #A3BE8C
+*.color11: #EBCB8B
+*.color12: #81A1C1
+*.color13: #B48EAD
+*.color14: #8FBCBB
+*.color15: #ECEFF4
 *.sixelScrolling : false

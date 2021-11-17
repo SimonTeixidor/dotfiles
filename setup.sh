@@ -24,7 +24,7 @@ cp -r bash/. $DEST/
 
 # Download wallpaper
 mkdir -p "$DEST/.local/share"
-wget --quiet https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png -O "$DEST/.local/share/wall.png"
+wget --quiet https://i.redd.it/pjvic9eq4vt41.jpg -O "$DEST/.local/share/wall.jpg"
 
 # Copy keyboard bindings to system wide config
 sudo cp -r xorg.conf.d /etc/X11/

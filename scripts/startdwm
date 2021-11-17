@@ -1,7 +1,7 @@
 #!/bin/bash
 xrandr | grep 3840 >/dev/null && xrdb -merge <(echo 'Xft.dpi: 120')
 picom -c -b --experimental-backends &
-hsetroot -tile .local/share/wall.png &
+hsetroot -cover .local/share/wall.jpg &
 prowler &
 redshift -l 47:8 &
 $(sleep 1; ~/bin/status) &

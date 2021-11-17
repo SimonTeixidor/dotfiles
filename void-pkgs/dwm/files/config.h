@@ -5,11 +5,11 @@
 
 #define NUMCOLORS 4
 
-#define normBg "#282a36"
-#define normFg "#6272a4"
-#define selFg "#f8f8f2"
-#define selBg "#bd93f9"
-#define urgentBg "#AB4642"
+#define normBg "#2E3440"
+#define normFg "#D8DEE9"
+#define selFg normFg
+#define selBg "#4C566A"
+#define urgentBg "#FF5555"
 #define font "Terminus:size=11"
 #define icon_font "stlarch:size=11"
 
@@ -17,7 +17,7 @@ static const char *fonts[]            = { font, icon_font };
 
 static const char *colors[][3]      = {
 	/*		   fg         bg          border   */
-	[SchemeNorm] = { selFg, normBg,  normFg },
+	[SchemeNorm] = { selFg, normBg,  normBg },
 	[SchemeSel]  = { selFg, normBg,   selFg },
 	[SchemeStatus] = { selFg, normBg, normFg },
 	[SchemeTagsSel]  = { selFg, selBg, normFg },
