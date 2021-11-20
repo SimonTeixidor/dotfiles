@@ -1,3 +1,5 @@
+" Hack for CtrlP compat with foot terminal
+set term=rxvt-256color
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -9,10 +11,9 @@ source $MYVIMDIR/xdg.vim
 set rtp+=$MYVIMDIR/bundle/Vundle.vim
 call vundle#begin("~/.config/vim/bundle")
 Plugin 'gmarik/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'neoclide/coc.nvim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'CraigGiles/scala.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
 Plugin 'arcticicestudio/nord-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -28,12 +29,14 @@ let g:rustfmt_autosave = 1
 source $MYVIMDIR/xdg.vim
 autocmd FileType sql :setlocal sw=2 ts=2 sts=2
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>qf  :<C-u>CocFix<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nmap <silent> gd <Plug>(lsp-definition)
+nmap <silent> gy <Plug>(lsp-type-definition)
+nmap <silent> gi <Plug>(lsp-implementation)
+nmap <silent> gr <Plug>(lsp-references)
+nmap <leader>qf  :<C-u>LspCodeAction<cr>
+nmap <buffer> gs <plug>(lsp-workspace-symbol-search)
+let g:lsp_format_sync_timeout = 1000
+autocmd! BufWritePre *.rs,*.scala call execute('LspDocumentFormatSync')
 
 set scl=no
 
@@ -41,8 +44,4 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 set hidden
 nmap <leader>bb :CtrlPBuffer<cr>
 
-highlight CocErrorFloat ctermbg=Red ctermfg=Black
-highlight CocFloating ctermbg=Red ctermfg=Black
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
 colorscheme nord
