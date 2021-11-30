@@ -5,7 +5,7 @@ export MOZ_ENABLE_WAYLAND=1
 mod="Mod1"
 
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal $mod+Shift Return spawn 'foot tmux'
+riverctl map normal $mod+Shift Return spawn foot
 
 riverctl map normal $mod b spawn firefox-wayland
 riverctl map normal $mod m spawn bemenu-run.sh
@@ -46,6 +46,10 @@ riverctl map normal $mod Space toggle-float
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen
+
+# Drag windows with mouse when alt is pressed
+riverctl map-pointer normal Mod1 BTN_LEFT move-view
+riverctl map-pointer normal Mod1 BTN_RIGHT resize-view
 
 # Set background and border color
 riverctl background-color 0x002b36
