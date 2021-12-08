@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Copyright (C) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
 # Copyright (C) 2017-present Sven Greb <development@svengreb.de>
 
@@ -15,27 +15,27 @@ NORD_TMUX_STATUS_CONTENT_NO_PATCHED_FONT_FILE="src/nord-status-content-no-patche
 NORD_TMUX_STATUS_CONTENT_OPTION="@nord_tmux_show_status_content"
 NORD_TMUX_STATUS_CONTENT_DATE_FORMAT="@nord_tmux_date_format"
 NORD_TMUX_NO_PATCHED_FONT_OPTION="@nord_tmux_no_patched_font"
-_current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+_current_dir=/home/simon/.config/tmux/nord-tmux/
 
-__cleanup() {
+cleanup() {
   unset -v NORD_TMUX_COLOR_THEME_FILE NORD_TMUX_VERSION
   unset -v NORD_TMUX_STATUS_CONTENT_FILE NORD_TMUX_STATUS_CONTENT_NO_PATCHED_FONT_FILE
   unset -v NORD_TMUX_STATUS_CONTENT_OPTION NORD_TMUX_NO_PATCHED_FONT_OPTION
   unset -v NORD_TMUX_STATUS_CONTENT_DATE_FORMAT
   unset -v _current_dir
-  unset -f __load __cleanup
+  unset -f load cleanup
   tmux set-environment -gu NORD_TMUX_STATUS_TIME_FORMAT
   tmux set-environment -gu NORD_TMUX_STATUS_DATE_FORMAT
 }
 
-__load() {
+load() {
   tmux source-file "$_current_dir/$NORD_TMUX_COLOR_THEME_FILE"
 
-  local status_content=$(tmux show-option -gqv "$NORD_TMUX_STATUS_CONTENT_OPTION")
-  local no_patched_font=$(tmux show-option -gqv "$NORD_TMUX_NO_PATCHED_FONT_OPTION")
-  local date_format=$(tmux show-option -gqv "$NORD_TMUX_STATUS_CONTENT_DATE_FORMAT")
+  status_content=$(tmux show-option -gqv "$NORD_TMUX_STATUS_CONTENT_OPTION")
+  no_patched_font=$(tmux show-option -gqv "$NORD_TMUX_NO_PATCHED_FONT_OPTION")
+  date_format=$(tmux show-option -gqv "$NORD_TMUX_STATUS_CONTENT_DATE_FORMAT")
 
-  if [ "$(tmux show-option -gqv "clock-mode-style")" == '12' ]; then
+  if [ "$(tmux show-option -gqv "clock-mode-style")" = '12' ]; then
     tmux set-environment -g NORD_TMUX_STATUS_TIME_FORMAT "%I:%M %p"
   else
     tmux set-environment -g NORD_TMUX_STATUS_TIME_FORMAT "%H:%M"
@@ -56,5 +56,5 @@ __load() {
   fi
 }
 
-__load
-__cleanup
+load
+cleanup
