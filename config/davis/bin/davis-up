@@ -1,0 +1,6 @@
+#!/bin/sh
+davis update
+pkill -F ~/.cache/mpd/mpd.pid
+until mpd 2>/dev/null; do
+	sleep 0.1
+done

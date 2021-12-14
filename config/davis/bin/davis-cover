@@ -1,0 +1,2 @@
+#!/bin/sh
+davis albumart -o - | picat -w 500

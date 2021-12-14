@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIR="$(davis status --plain | grep '^Song:' | cut -d: -f2- | xargs -d'\n' dirname)"
+
+ssh -t 192.168.0.16 "cd \"/mnt/storage/music/$DIR\"; bash --login"

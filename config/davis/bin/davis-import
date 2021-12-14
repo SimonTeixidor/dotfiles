@@ -1,0 +1,6 @@
+#!/bin/sh
+DIR=$(mpc playlist -f '%file%' | grep '.flac$' | xargs -d'\n' dirname | sort -u)
+RATING=$1
+mpc -q clear &
+ssh simon@192.168.0.16 "/usr/local/bin/import.sh \"$DIR\" $RATING"
+mpc -q update &
