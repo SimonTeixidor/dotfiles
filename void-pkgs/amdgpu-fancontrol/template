@@ -1,0 +1,17 @@
+# Template file for 'ansi'
+pkgname=amdgpu-fancontrol
+version=1
+revision=2
+short_desc="Simple shell script to control AMD Radeon graphics cards fan pwm"
+maintainer="Simon Persson <simon@flaskpost.me>"
+license="GPLv3"
+homepage="https://github.com/grmat/amdgpu-fancontrol"
+distfiles="https://github.com/SimonPersson/amdgpu-fancontrol/archive/refs/heads/master.zip"
+checksum=fdf73879fdf48fec48104b4a5605ec639d0fac846e76e5db06019cfab5c15641
+wrksrc=amdgpu-fancontrol-master
+
+do_install() {
+	vbin amdgpu-fancontrol
+	vlicense LICENSE
+	vsv amdgpu-fancontrol
+}
