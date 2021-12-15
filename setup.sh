@@ -13,7 +13,7 @@ fi
 mkdir -p "$DEST/.config"
 cp -r config/* "$DEST/.config"
 
-# Copy scripts, and download prowler
+# Copy scripts
 mkdir -p "$DEST/bin"
 cp scripts/* $DEST/bin/
 
