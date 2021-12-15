@@ -74,6 +74,10 @@ riverctl border-color-unfocused 0x4C566A
 
 riverctl focus-follows-cursor normal
 
+riverctl focus-output next
+
+prowler &
+
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
