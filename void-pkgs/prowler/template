@@ -1,0 +1,16 @@
+pkgname=prowler
+version=1
+revision=1
+short_desc="Delete unwanted files that pollute home"
+maintainer="Simon Persson <simon@flaskpost.me>"
+license="GPLv3"
+homepage="https://github.com/tlvince/prowler/"
+distfiles="https://github.com/tlvince/prowler/archive/refs/heads/master.zip"
+checksum=0a8adfb4f299ee64ddc8c36b9dc7c500c89fd5228af227bacfa6ae868d6152bc
+wrksrc=prowler-master
+depends="inotify-tools"
+
+do_install() {
+	vbin prowler
+	vlicense LICENSE
+}
