@@ -7,7 +7,7 @@ mod="Mod1"
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal $mod+Shift Return spawn foot
 
-riverctl map normal $mod b spawn firefox
+riverctl map normal $mod b spawn firefox-wayland
 riverctl map normal $mod m spawn bemenu-run.sh
 
 # Mod+Q to close the focused view
