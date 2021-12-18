@@ -4,7 +4,7 @@ set -eu
 
 DEST=$1
 
-if [ "$DEST" == "" ]; then
+if [ "$DEST" = "" ]; then
 	echo "You must provide a parameter!"
 	exit -1
 fi
