@@ -45,3 +45,4 @@ set hidden
 nmap <leader>bb :CtrlPBuffer<cr>
 
 colorscheme nord
+autocmd filetype mail set textwidth=0
