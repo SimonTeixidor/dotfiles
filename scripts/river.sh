@@ -4,4 +4,4 @@ export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/$(id -u)-runtime}"
     mkdir -p   "$XDG_RUNTIME_DIR" 
     chmod 0700 "$XDG_RUNTIME_DIR"
 }
-XDG_CURRENT_DESKTOP=river XKB_DEFAULT_OPTIONS=grp:shift_caps_toggle,caps:escape XKB_DEFAULT_LAYOUT=us,se river
+XDG_CURRENT_DESKTOP=river XKB_DEFAULT_OPTIONS=grp:shifts_toggle,caps:escape XKB_DEFAULT_LAYOUT=us,se river
