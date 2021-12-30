@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for file in ~/.config/bash/bashrc.d/*.sh; do
+    [ -r "$file" ] && . "$file"
+done

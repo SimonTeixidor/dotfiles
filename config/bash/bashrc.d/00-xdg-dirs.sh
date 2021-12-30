@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 # Set directories
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -10,3 +10,5 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export HISTFILE="$XDG_DATA_HOME"/bash/history
