@@ -8,7 +8,7 @@ mod="Mod1"
 riverctl map normal $mod+Shift Return spawn foot
 
 riverctl map normal $mod b spawn firefox-wayland
-riverctl map normal $mod m spawn bemenu-run.sh
+riverctl map normal $mod m spawn 'dmenu-wl_run -nb "#000000" -nf "#FFFFFF" -sf "#000000" -sb "#FFFFFF" -h 24'
 
 # Mod+Q to close the focused view
 riverctl map normal $mod+Shift x close
@@ -66,7 +66,7 @@ riverctl float-filter-add title "popup title with spaces"
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 
-swaybg -m fill -i ~/.local/share/wall.jpg &
+swaybg -m tile -i ~/.local/share/wall.png &
 
 riverctl border-width 5
 riverctl border-color-focused 0x81A1C1
@@ -82,6 +82,10 @@ riverctl map normal $mod escape spawn 'davis toggle'
 
 riverctl map normal None XF86MonBrightnessDown spawn 'xbacklight -dec 10'
 riverctl map normal None XF86MonBrightnessUp spawn 'xbacklight -inc 10'
+
+riverctl spawn dunst
+riverctl spawn 'levee battery'
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
