@@ -1,0 +1,46 @@
+{
+  "keymaps": {
+    "k": { "type": "scroll.vertically", "count": -1 },
+    "j": { "type": "scroll.vertically", "count": 1 },
+    "h": { "type": "scroll.horizonally", "count": -1 },
+    "l": { "type": "scroll.horizonally", "count": 1 },
+    "u": { "type": "tabs.reopen" },
+    "gg": { "type": "scroll.top" },
+    "G": { "type": "scroll.bottom" },
+    "q": { "type": "tabs.close" },
+    "gT": { "type": "tabs.prev" },
+    "gt": { "type": "tabs.next" },
+    "r": { "type": "tabs.reload", "cache": false },
+    "R": { "type": "tabs.reload", "cache": true },
+    "e": { "type": "follow.start", "newTab": false },
+    "E": { "type": "follow.start", "newTab": true, "background": false },
+    "d": { "type": "navigate.history.prev" },
+    "f": { "type": "navigate.history.next" },
+    "gi": { "type": "focus.input" },
+    "gh": { "type": "page.home" },
+    "gr": { "type": "tabs.reader.toggle" },
+    "y": { "type": "urls.yank" },
+    "/": { "type": "find.start" },
+    "n": { "type": "find.next" },
+    "N": { "type": "find.prev" }
+  },
+  "search": {
+    "default": "duckduckgo",
+    "engines": {
+      "google": "https://google.com/search?q={}",
+      "yahoo": "https://search.yahoo.com/search?p={}",
+      "bing": "https://www.bing.com/search?q={}",
+      "duckduckgo": "https://duckduckgo.com/?q={}",
+      "twitter": "https://twitter.com/search?q={}",
+      "wikipedia": "https://en.wikipedia.org/w/index.php?search={}"
+    }
+  },
+  "properties": {
+    "hintchars": "abcdefghijklmnopqrstuvwxyz",
+    "smoothscroll": false,
+    "complete": "sbh",
+    "colorscheme": "system"
+  },
+  "blacklist": [
+  ]
+}
