@@ -1,7 +1,0 @@
-#!/bin/sh
-exec lynx \
-        -stdin \
-        -force_html \
-	-width=$(tput cols) \
-        -dump \
-        -number_links

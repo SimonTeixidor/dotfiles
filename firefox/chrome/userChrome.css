@@ -1,9 +1,0 @@
-#navigator-toolbox {
-  border-bottom: unset !important;
-}
-
-#nav-bar { 
-  background-color: var(--bg1) !important;
-}
-
-:root { --tabs-navbar-shadow-size: 0 !important; }

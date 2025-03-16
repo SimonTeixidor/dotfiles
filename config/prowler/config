@@ -1,6 +1,0 @@
-LOG=1
-before_rm()
-{
-    # Sometimes rm fails if we delete too fast.
-    sleep 1
-}
